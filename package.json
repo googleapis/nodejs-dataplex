@@ -24,6 +24,8 @@
     "dataplex service"
   ],
   "scripts": {
+    "samples-test": "c8 npm run samples-test-suite",
+    "samples-test-suite": "cd samples/ && npm link ../ && npm test && cd ../",
     "clean": "gts clean",
     "compile": "tsc -p . && cp -r protos build/",
     "compile-protos": "compileProtos src",
