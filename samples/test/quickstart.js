@@ -18,14 +18,14 @@ const path = require('path');
 const cp = require('child_process');
 const {before, describe, it} = require('mocha');
 // eslint-disable-next-line node/no-missing-require
-const {DataPlexClient} = require('@google-cloud/dataplex');
+const {DataplexServiceClient} = require('@google-cloud/dataplex');
 const {assert} = require('chai');
 
 const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const cwd = path.join(__dirname, '..');
 
-const client = new DataPlexClient();
+const client = new DataplexServiceClient();
 
 describe('Quickstart', () => {
   let projectId;
@@ -35,7 +35,7 @@ describe('Quickstart', () => {
   });
 
   it('should run quickstart', async () => {
-    const stdout = execSync(`node ./quickstart.js ${projectId} global`, {cwd});
+    const stdout = execSync(`node ./quickstart.js ${projectId} us-central1`, {cwd});
     assert.match(stdout, /\[\]/);
   });
 });
