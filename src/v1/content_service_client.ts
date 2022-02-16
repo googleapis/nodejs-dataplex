@@ -18,10 +18,17 @@
 
 /* global window */
 import * as gax from 'google-gax';
-import {Callback, CallOptions, Descriptors, ClientOptions, PaginationCallback, GaxCall} from 'google-gax';
+import {
+  Callback,
+  CallOptions,
+  Descriptors,
+  ClientOptions,
+  PaginationCallback,
+  GaxCall,
+} from 'google-gax';
 
-import { Transform } from 'stream';
-import { RequestType } from 'google-gax/build/src/apitypes';
+import {Transform} from 'stream';
+import {RequestType} from 'google-gax/build/src/apitypes';
 import * as protos from '../../protos/protos';
 import jsonProtos = require('../../protos/protos.json');
 /**
@@ -95,11 +102,16 @@ export class ContentServiceClient {
   constructor(opts?: ClientOptions) {
     // Ensure that options include all the required fields.
     const staticMembers = this.constructor as typeof ContentServiceClient;
-    const servicePath = opts?.servicePath || opts?.apiEndpoint || staticMembers.servicePath;
-    this._providedCustomServicePath = !!(opts?.servicePath || opts?.apiEndpoint);
+    const servicePath =
+      opts?.servicePath || opts?.apiEndpoint || staticMembers.servicePath;
+    this._providedCustomServicePath = !!(
+      opts?.servicePath || opts?.apiEndpoint
+    );
     const port = opts?.port || staticMembers.port;
     const clientConfig = opts?.clientConfig ?? {};
-    const fallback = opts?.fallback ?? (typeof window !== 'undefined' && typeof window?.fetch === 'function');
+    const fallback =
+      opts?.fallback ??
+      (typeof window !== 'undefined' && typeof window?.fetch === 'function');
     opts = Object.assign({servicePath, port, clientConfig, fallback}, opts);
 
     // If scopes are unset in options and we're connecting to a non-default endpoint, set scopes just in case.
@@ -117,7 +129,7 @@ export class ContentServiceClient {
     this._opts = opts;
 
     // Save the auth object to the client, for use by other methods.
-    this.auth = (this._gaxGrpc.auth as gax.GoogleAuth);
+    this.auth = this._gaxGrpc.auth as gax.GoogleAuth;
 
     // Set useJWTAccessWithScope on the auth object.
     this.auth.useJWTAccessWithScope = true;
@@ -131,10 +143,7 @@ export class ContentServiceClient {
     }
 
     // Determine the client header string.
-    const clientHeader = [
-      `gax/${this._gaxModule.version}`,
-      `gapic/${version}`,
-    ];
+    const clientHeader = [`gax/${this._gaxModule.version}`, `gapic/${version}`];
     if (typeof process !== 'undefined' && 'versions' in process) {
       clientHeader.push(`gl-node/${process.versions.node}`);
     } else {
@@ -142,7 +151,7 @@ export class ContentServiceClient {
     }
     if (!opts.fallback) {
       clientHeader.push(`grpc/${this._gaxGrpc.grpcVersion}`);
-    } else if (opts.fallback === 'rest' ) {
+    } else if (opts.fallback === 'rest') {
       clientHeader.push(`rest/${this._gaxGrpc.grpcVersion}`);
     }
     if (opts.libName && opts.libVersion) {
@@ -179,12 +188,14 @@ export class ContentServiceClient {
       projectLocationLakeActionPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/lakes/{lake}/actions/{action}'
       ),
-      projectLocationLakeZoneActionPathTemplate: new this._gaxModule.PathTemplate(
-        'projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/actions/{action}'
-      ),
-      projectLocationLakeZoneAssetActionPathTemplate: new this._gaxModule.PathTemplate(
-        'projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/assets/{asset}/actions/{action}'
-      ),
+      projectLocationLakeZoneActionPathTemplate:
+        new this._gaxModule.PathTemplate(
+          'projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/actions/{action}'
+        ),
+      projectLocationLakeZoneAssetActionPathTemplate:
+        new this._gaxModule.PathTemplate(
+          'projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/assets/{asset}/actions/{action}'
+        ),
       sessionPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/lakes/{lake}/environments/{environment}/sessions/{session}'
       ),
@@ -200,14 +211,20 @@ export class ContentServiceClient {
     // (e.g. 50 results at a time, with tokens to get subsequent
     // pages). Denote the keys used for pagination and results.
     this.descriptors.page = {
-      listContent:
-          new this._gaxModule.PageDescriptor('pageToken', 'nextPageToken', 'content')
+      listContent: new this._gaxModule.PageDescriptor(
+        'pageToken',
+        'nextPageToken',
+        'content'
+      ),
     };
 
     // Put together the default options sent with requests.
     this._defaults = this._gaxGrpc.constructSettings(
-        'google.cloud.dataplex.v1.ContentService', gapicConfig as gax.ClientConfig,
-        opts.clientConfig || {}, {'x-goog-api-client': clientHeader.join(' ')});
+      'google.cloud.dataplex.v1.ContentService',
+      gapicConfig as gax.ClientConfig,
+      opts.clientConfig || {},
+      {'x-goog-api-client': clientHeader.join(' ')}
+    );
 
     // Set up a dictionary of "inner API calls"; the core implementation
     // of calling the API is handled in `google-gax`, with this code
@@ -238,32 +255,41 @@ export class ContentServiceClient {
     // Put together the "service stub" for
     // google.cloud.dataplex.v1.ContentService.
     this.contentServiceStub = this._gaxGrpc.createStub(
-        this._opts.fallback ?
-          (this._protos as protobuf.Root).lookupService('google.cloud.dataplex.v1.ContentService') :
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      this._opts.fallback
+        ? (this._protos as protobuf.Root).lookupService(
+            'google.cloud.dataplex.v1.ContentService'
+          )
+        : // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (this._protos as any).google.cloud.dataplex.v1.ContentService,
-        this._opts, this._providedCustomServicePath) as Promise<{[method: string]: Function}>;
+      this._opts,
+      this._providedCustomServicePath
+    ) as Promise<{[method: string]: Function}>;
 
     // Iterate over each of the methods that the service provides
     // and create an API call method for each.
-    const contentServiceStubMethods =
-        ['createContent', 'updateContent', 'deleteContent', 'getContent', 'listContent'];
+    const contentServiceStubMethods = [
+      'createContent',
+      'updateContent',
+      'deleteContent',
+      'getContent',
+      'listContent',
+    ];
     for (const methodName of contentServiceStubMethods) {
       const callPromise = this.contentServiceStub.then(
-        stub => (...args: Array<{}>) => {
-          if (this._terminated) {
-            return Promise.reject('The client has already been closed.');
-          }
-          const func = stub[methodName];
-          return func.apply(stub, args);
-        },
-        (err: Error|null|undefined) => () => {
+        stub =>
+          (...args: Array<{}>) => {
+            if (this._terminated) {
+              return Promise.reject('The client has already been closed.');
+            }
+            const func = stub[methodName];
+            return func.apply(stub, args);
+          },
+        (err: Error | null | undefined) => () => {
           throw err;
-        });
+        }
+      );
 
-      const descriptor =
-        this.descriptors.page[methodName] ||
-        undefined;
+      const descriptor = this.descriptors.page[methodName] || undefined;
       const apiCall = this._gaxModule.createApiCall(
         callPromise,
         this._defaults[methodName],
@@ -307,9 +333,7 @@ export class ContentServiceClient {
    * @returns {string[]} List of default scopes.
    */
   static get scopes() {
-    return [
-      'https://www.googleapis.com/auth/cloud-platform'
-    ];
+    return ['https://www.googleapis.com/auth/cloud-platform'];
   }
 
   getProjectId(): Promise<string>;
@@ -318,8 +342,9 @@ export class ContentServiceClient {
    * Return the project ID used by this class.
    * @returns {Promise} A promise that resolves to string containing the project ID.
    */
-  getProjectId(callback?: Callback<string, undefined, undefined>):
-      Promise<string>|void {
+  getProjectId(
+    callback?: Callback<string, undefined, undefined>
+  ): Promise<string> | void {
     if (callback) {
       this.auth.getProjectId(callback);
       return;
@@ -330,455 +355,520 @@ export class ContentServiceClient {
   // -------------------
   // -- Service calls --
   // -------------------
-/**
- * Create a content.
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {string} request.parent
- *   Required. The resource name of the parent lake:
- *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
- * @param {google.cloud.dataplex.v1.Content} request.content
- *   Required. Content resource.
- * @param {boolean} [request.validateOnly]
- *   Optional. Only validate the request, but do not perform mutations.
- *   The default is false.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is an object representing [Content]{@link google.cloud.dataplex.v1.Content}.
- *   Please see the
- *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
- *   for more details and examples.
- * @example <caption>include:samples/generated/v1/content_service.create_content.js</caption>
- * region_tag:dataplex_v1_generated_ContentService_CreateContent_async
- */
+  /**
+   * Create a content.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.parent
+   *   Required. The resource name of the parent lake:
+   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   * @param {google.cloud.dataplex.v1.Content} request.content
+   *   Required. Content resource.
+   * @param {boolean} [request.validateOnly]
+   *   Optional. Only validate the request, but do not perform mutations.
+   *   The default is false.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Content]{@link google.cloud.dataplex.v1.Content}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/content_service.create_content.js</caption>
+   * region_tag:dataplex_v1_generated_ContentService_CreateContent_async
+   */
   createContent(
-      request?: protos.google.cloud.dataplex.v1.ICreateContentRequest,
-      options?: CallOptions):
-      Promise<[
-        protos.google.cloud.dataplex.v1.IContent,
-        protos.google.cloud.dataplex.v1.ICreateContentRequest|undefined, {}|undefined
-      ]>;
+    request?: protos.google.cloud.dataplex.v1.ICreateContentRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.ICreateContentRequest | undefined,
+      {} | undefined
+    ]
+  >;
   createContent(
-      request: protos.google.cloud.dataplex.v1.ICreateContentRequest,
-      options: CallOptions,
-      callback: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.ICreateContentRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.cloud.dataplex.v1.ICreateContentRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.ICreateContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   createContent(
-      request: protos.google.cloud.dataplex.v1.ICreateContentRequest,
-      callback: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.ICreateContentRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.cloud.dataplex.v1.ICreateContentRequest,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.ICreateContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   createContent(
-      request?: protos.google.cloud.dataplex.v1.ICreateContentRequest,
-      optionsOrCallback?: CallOptions|Callback<
+    request?: protos.google.cloud.dataplex.v1.ICreateContentRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
           protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.ICreateContentRequest|null|undefined,
-          {}|null|undefined>,
-      callback?: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.ICreateContentRequest|null|undefined,
-          {}|null|undefined>):
-      Promise<[
-        protos.google.cloud.dataplex.v1.IContent,
-        protos.google.cloud.dataplex.v1.ICreateContentRequest|undefined, {}|undefined
-      ]>|void {
+          | protos.google.cloud.dataplex.v1.ICreateContentRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.ICreateContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.ICreateContentRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
     request = request || {};
     let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'parent': request.parent || '',
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        parent: request.parent || '',
+      });
     this.initialize();
     return this.innerApiCalls.createContent(request, options, callback);
   }
-/**
- * Update a content. Only supports full resource update.
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {google.protobuf.FieldMask} request.updateMask
- *   Required. Mask of fields to update.
- * @param {google.cloud.dataplex.v1.Content} request.content
- *   Required. Update description.
- *   Only fields specified in `update_mask` are updated.
- * @param {boolean} [request.validateOnly]
- *   Optional. Only validate the request, but do not perform mutations.
- *   The default is false.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is an object representing [Content]{@link google.cloud.dataplex.v1.Content}.
- *   Please see the
- *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
- *   for more details and examples.
- * @example <caption>include:samples/generated/v1/content_service.update_content.js</caption>
- * region_tag:dataplex_v1_generated_ContentService_UpdateContent_async
- */
+  /**
+   * Update a content. Only supports full resource update.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {google.protobuf.FieldMask} request.updateMask
+   *   Required. Mask of fields to update.
+   * @param {google.cloud.dataplex.v1.Content} request.content
+   *   Required. Update description.
+   *   Only fields specified in `update_mask` are updated.
+   * @param {boolean} [request.validateOnly]
+   *   Optional. Only validate the request, but do not perform mutations.
+   *   The default is false.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Content]{@link google.cloud.dataplex.v1.Content}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/content_service.update_content.js</caption>
+   * region_tag:dataplex_v1_generated_ContentService_UpdateContent_async
+   */
   updateContent(
-      request?: protos.google.cloud.dataplex.v1.IUpdateContentRequest,
-      options?: CallOptions):
-      Promise<[
-        protos.google.cloud.dataplex.v1.IContent,
-        protos.google.cloud.dataplex.v1.IUpdateContentRequest|undefined, {}|undefined
-      ]>;
+    request?: protos.google.cloud.dataplex.v1.IUpdateContentRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IUpdateContentRequest | undefined,
+      {} | undefined
+    ]
+  >;
   updateContent(
-      request: protos.google.cloud.dataplex.v1.IUpdateContentRequest,
-      options: CallOptions,
-      callback: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.IUpdateContentRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.cloud.dataplex.v1.IUpdateContentRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IUpdateContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   updateContent(
-      request: protos.google.cloud.dataplex.v1.IUpdateContentRequest,
-      callback: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.IUpdateContentRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.cloud.dataplex.v1.IUpdateContentRequest,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IUpdateContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   updateContent(
-      request?: protos.google.cloud.dataplex.v1.IUpdateContentRequest,
-      optionsOrCallback?: CallOptions|Callback<
+    request?: protos.google.cloud.dataplex.v1.IUpdateContentRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
           protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.IUpdateContentRequest|null|undefined,
-          {}|null|undefined>,
-      callback?: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.IUpdateContentRequest|null|undefined,
-          {}|null|undefined>):
-      Promise<[
-        protos.google.cloud.dataplex.v1.IContent,
-        protos.google.cloud.dataplex.v1.IUpdateContentRequest|undefined, {}|undefined
-      ]>|void {
+          | protos.google.cloud.dataplex.v1.IUpdateContentRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IUpdateContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IUpdateContentRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
     request = request || {};
     let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'content.name': request.content!.name || '',
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'content.name': request.content!.name || '',
+      });
     this.initialize();
     return this.innerApiCalls.updateContent(request, options, callback);
   }
-/**
- * Delete a content.
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {string} request.name
- *   Required. The resource name of the content:
- *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is an object representing [Empty]{@link google.protobuf.Empty}.
- *   Please see the
- *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
- *   for more details and examples.
- * @example <caption>include:samples/generated/v1/content_service.delete_content.js</caption>
- * region_tag:dataplex_v1_generated_ContentService_DeleteContent_async
- */
+  /**
+   * Delete a content.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   Required. The resource name of the content:
+   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Empty]{@link google.protobuf.Empty}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/content_service.delete_content.js</caption>
+   * region_tag:dataplex_v1_generated_ContentService_DeleteContent_async
+   */
   deleteContent(
-      request?: protos.google.cloud.dataplex.v1.IDeleteContentRequest,
-      options?: CallOptions):
-      Promise<[
-        protos.google.protobuf.IEmpty,
-        protos.google.cloud.dataplex.v1.IDeleteContentRequest|undefined, {}|undefined
-      ]>;
+    request?: protos.google.cloud.dataplex.v1.IDeleteContentRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteContentRequest | undefined,
+      {} | undefined
+    ]
+  >;
   deleteContent(
-      request: protos.google.cloud.dataplex.v1.IDeleteContentRequest,
-      options: CallOptions,
-      callback: Callback<
-          protos.google.protobuf.IEmpty,
-          protos.google.cloud.dataplex.v1.IDeleteContentRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.cloud.dataplex.v1.IDeleteContentRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   deleteContent(
-      request: protos.google.cloud.dataplex.v1.IDeleteContentRequest,
-      callback: Callback<
-          protos.google.protobuf.IEmpty,
-          protos.google.cloud.dataplex.v1.IDeleteContentRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.cloud.dataplex.v1.IDeleteContentRequest,
+    callback: Callback<
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   deleteContent(
-      request?: protos.google.cloud.dataplex.v1.IDeleteContentRequest,
-      optionsOrCallback?: CallOptions|Callback<
+    request?: protos.google.cloud.dataplex.v1.IDeleteContentRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
           protos.google.protobuf.IEmpty,
-          protos.google.cloud.dataplex.v1.IDeleteContentRequest|null|undefined,
-          {}|null|undefined>,
-      callback?: Callback<
-          protos.google.protobuf.IEmpty,
-          protos.google.cloud.dataplex.v1.IDeleteContentRequest|null|undefined,
-          {}|null|undefined>):
-      Promise<[
-        protos.google.protobuf.IEmpty,
-        protos.google.cloud.dataplex.v1.IDeleteContentRequest|undefined, {}|undefined
-      ]>|void {
+          | protos.google.cloud.dataplex.v1.IDeleteContentRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteContentRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
     request = request || {};
     let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'name': request.name || '',
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        name: request.name || '',
+      });
     this.initialize();
     return this.innerApiCalls.deleteContent(request, options, callback);
   }
-/**
- * Get a content resource.
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {string} request.name
- *   Required. The resource name of the content:
- *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
- * @param {google.cloud.dataplex.v1.GetContentRequest.ContentView} [request.view]
- *   Optional. Specify content view to make a partial request.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is an object representing [Content]{@link google.cloud.dataplex.v1.Content}.
- *   Please see the
- *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
- *   for more details and examples.
- * @example <caption>include:samples/generated/v1/content_service.get_content.js</caption>
- * region_tag:dataplex_v1_generated_ContentService_GetContent_async
- */
+  /**
+   * Get a content resource.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   Required. The resource name of the content:
+   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
+   * @param {google.cloud.dataplex.v1.GetContentRequest.ContentView} [request.view]
+   *   Optional. Specify content view to make a partial request.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Content]{@link google.cloud.dataplex.v1.Content}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/content_service.get_content.js</caption>
+   * region_tag:dataplex_v1_generated_ContentService_GetContent_async
+   */
   getContent(
-      request?: protos.google.cloud.dataplex.v1.IGetContentRequest,
-      options?: CallOptions):
-      Promise<[
-        protos.google.cloud.dataplex.v1.IContent,
-        protos.google.cloud.dataplex.v1.IGetContentRequest|undefined, {}|undefined
-      ]>;
+    request?: protos.google.cloud.dataplex.v1.IGetContentRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IGetContentRequest | undefined,
+      {} | undefined
+    ]
+  >;
   getContent(
-      request: protos.google.cloud.dataplex.v1.IGetContentRequest,
-      options: CallOptions,
-      callback: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.IGetContentRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.cloud.dataplex.v1.IGetContentRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IGetContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   getContent(
-      request: protos.google.cloud.dataplex.v1.IGetContentRequest,
-      callback: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.IGetContentRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.cloud.dataplex.v1.IGetContentRequest,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IGetContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   getContent(
-      request?: protos.google.cloud.dataplex.v1.IGetContentRequest,
-      optionsOrCallback?: CallOptions|Callback<
+    request?: protos.google.cloud.dataplex.v1.IGetContentRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
           protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.IGetContentRequest|null|undefined,
-          {}|null|undefined>,
-      callback?: Callback<
-          protos.google.cloud.dataplex.v1.IContent,
-          protos.google.cloud.dataplex.v1.IGetContentRequest|null|undefined,
-          {}|null|undefined>):
-      Promise<[
-        protos.google.cloud.dataplex.v1.IContent,
-        protos.google.cloud.dataplex.v1.IGetContentRequest|undefined, {}|undefined
-      ]>|void {
+          protos.google.cloud.dataplex.v1.IGetContentRequest | null | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IGetContentRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IContent,
+      protos.google.cloud.dataplex.v1.IGetContentRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
     request = request || {};
     let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'name': request.name || '',
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        name: request.name || '',
+      });
     this.initialize();
     return this.innerApiCalls.getContent(request, options, callback);
   }
 
- /**
- * List content.
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {string} request.parent
- *   Required. The resource name of the parent lake:
- *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
- * @param {number} [request.pageSize]
- *   Optional. Maximum number of content to return. The service may return fewer than
- *   this value. If unspecified, at most 10 content will be returned. The
- *   maximum value is 1000; values above 1000 will be coerced to 1000.
- * @param {string} [request.pageToken]
- *   Optional. Page token received from a previous `ListContent` call. Provide this
- *   to retrieve the subsequent page. When paginating, all other parameters
- *   provided to `ListContent` must match the call that provided the page
- *   token.
- * @param {string} [request.filter]
- *   Optional. Filter request. Filters are case-sensitive.
- *   The following formats are supported:
- *
- *   labels.key1 = "value1"
- *   labels:key1
- *   type = "NOTEBOOK"
- *   type = "SQL_SCRIPT"
- *
- *   These restrictions can be coinjoined with AND, OR and NOT conjunctions.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is Array of [Content]{@link google.cloud.dataplex.v1.Content}.
- *   The client library will perform auto-pagination by default: it will call the API as many
- *   times as needed and will merge results from all the pages into this array.
- *   Note that it can affect your quota.
- *   We recommend using `listContentAsync()`
- *   method described below for async iteration which you can stop as needed.
- *   Please see the
- *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
- *   for more details and examples.
- */
+  /**
+   * List content.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.parent
+   *   Required. The resource name of the parent lake:
+   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   * @param {number} [request.pageSize]
+   *   Optional. Maximum number of content to return. The service may return fewer than
+   *   this value. If unspecified, at most 10 content will be returned. The
+   *   maximum value is 1000; values above 1000 will be coerced to 1000.
+   * @param {string} [request.pageToken]
+   *   Optional. Page token received from a previous `ListContent` call. Provide this
+   *   to retrieve the subsequent page. When paginating, all other parameters
+   *   provided to `ListContent` must match the call that provided the page
+   *   token.
+   * @param {string} [request.filter]
+   *   Optional. Filter request. Filters are case-sensitive.
+   *   The following formats are supported:
+   *
+   *   labels.key1 = "value1"
+   *   labels:key1
+   *   type = "NOTEBOOK"
+   *   type = "SQL_SCRIPT"
+   *
+   *   These restrictions can be coinjoined with AND, OR and NOT conjunctions.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is Array of [Content]{@link google.cloud.dataplex.v1.Content}.
+   *   The client library will perform auto-pagination by default: it will call the API as many
+   *   times as needed and will merge results from all the pages into this array.
+   *   Note that it can affect your quota.
+   *   We recommend using `listContentAsync()`
+   *   method described below for async iteration which you can stop as needed.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
+   *   for more details and examples.
+   */
   listContent(
-      request?: protos.google.cloud.dataplex.v1.IListContentRequest,
-      options?: CallOptions):
-      Promise<[
-        protos.google.cloud.dataplex.v1.IContent[],
-        protos.google.cloud.dataplex.v1.IListContentRequest|null,
-        protos.google.cloud.dataplex.v1.IListContentResponse
-      ]>;
+    request?: protos.google.cloud.dataplex.v1.IListContentRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IContent[],
+      protos.google.cloud.dataplex.v1.IListContentRequest | null,
+      protos.google.cloud.dataplex.v1.IListContentResponse
+    ]
+  >;
   listContent(
-      request: protos.google.cloud.dataplex.v1.IListContentRequest,
-      options: CallOptions,
-      callback: PaginationCallback<
-          protos.google.cloud.dataplex.v1.IListContentRequest,
-          protos.google.cloud.dataplex.v1.IListContentResponse|null|undefined,
-          protos.google.cloud.dataplex.v1.IContent>): void;
+    request: protos.google.cloud.dataplex.v1.IListContentRequest,
+    options: CallOptions,
+    callback: PaginationCallback<
+      protos.google.cloud.dataplex.v1.IListContentRequest,
+      protos.google.cloud.dataplex.v1.IListContentResponse | null | undefined,
+      protos.google.cloud.dataplex.v1.IContent
+    >
+  ): void;
   listContent(
-      request: protos.google.cloud.dataplex.v1.IListContentRequest,
-      callback: PaginationCallback<
-          protos.google.cloud.dataplex.v1.IListContentRequest,
-          protos.google.cloud.dataplex.v1.IListContentResponse|null|undefined,
-          protos.google.cloud.dataplex.v1.IContent>): void;
+    request: protos.google.cloud.dataplex.v1.IListContentRequest,
+    callback: PaginationCallback<
+      protos.google.cloud.dataplex.v1.IListContentRequest,
+      protos.google.cloud.dataplex.v1.IListContentResponse | null | undefined,
+      protos.google.cloud.dataplex.v1.IContent
+    >
+  ): void;
   listContent(
-      request?: protos.google.cloud.dataplex.v1.IListContentRequest,
-      optionsOrCallback?: CallOptions|PaginationCallback<
+    request?: protos.google.cloud.dataplex.v1.IListContentRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | PaginationCallback<
           protos.google.cloud.dataplex.v1.IListContentRequest,
-          protos.google.cloud.dataplex.v1.IListContentResponse|null|undefined,
-          protos.google.cloud.dataplex.v1.IContent>,
-      callback?: PaginationCallback<
-          protos.google.cloud.dataplex.v1.IListContentRequest,
-          protos.google.cloud.dataplex.v1.IListContentResponse|null|undefined,
-          protos.google.cloud.dataplex.v1.IContent>):
-      Promise<[
-        protos.google.cloud.dataplex.v1.IContent[],
-        protos.google.cloud.dataplex.v1.IListContentRequest|null,
-        protos.google.cloud.dataplex.v1.IListContentResponse
-      ]>|void {
+          | protos.google.cloud.dataplex.v1.IListContentResponse
+          | null
+          | undefined,
+          protos.google.cloud.dataplex.v1.IContent
+        >,
+    callback?: PaginationCallback<
+      protos.google.cloud.dataplex.v1.IListContentRequest,
+      protos.google.cloud.dataplex.v1.IListContentResponse | null | undefined,
+      protos.google.cloud.dataplex.v1.IContent
+    >
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IContent[],
+      protos.google.cloud.dataplex.v1.IListContentRequest | null,
+      protos.google.cloud.dataplex.v1.IListContentResponse
+    ]
+  > | void {
     request = request || {};
     let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'parent': request.parent || '',
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        parent: request.parent || '',
+      });
     this.initialize();
     return this.innerApiCalls.listContent(request, options, callback);
   }
 
-/**
- * Equivalent to `method.name.toCamelCase()`, but returns a NodeJS Stream object.
- * @param {Object} request
- *   The request object that will be sent.
- * @param {string} request.parent
- *   Required. The resource name of the parent lake:
- *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
- * @param {number} [request.pageSize]
- *   Optional. Maximum number of content to return. The service may return fewer than
- *   this value. If unspecified, at most 10 content will be returned. The
- *   maximum value is 1000; values above 1000 will be coerced to 1000.
- * @param {string} [request.pageToken]
- *   Optional. Page token received from a previous `ListContent` call. Provide this
- *   to retrieve the subsequent page. When paginating, all other parameters
- *   provided to `ListContent` must match the call that provided the page
- *   token.
- * @param {string} [request.filter]
- *   Optional. Filter request. Filters are case-sensitive.
- *   The following formats are supported:
- *
- *   labels.key1 = "value1"
- *   labels:key1
- *   type = "NOTEBOOK"
- *   type = "SQL_SCRIPT"
- *
- *   These restrictions can be coinjoined with AND, OR and NOT conjunctions.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Stream}
- *   An object stream which emits an object representing [Content]{@link google.cloud.dataplex.v1.Content} on 'data' event.
- *   The client library will perform auto-pagination by default: it will call the API as many
- *   times as needed. Note that it can affect your quota.
- *   We recommend using `listContentAsync()`
- *   method described below for async iteration which you can stop as needed.
- *   Please see the
- *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
- *   for more details and examples.
- */
+  /**
+   * Equivalent to `method.name.toCamelCase()`, but returns a NodeJS Stream object.
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.parent
+   *   Required. The resource name of the parent lake:
+   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   * @param {number} [request.pageSize]
+   *   Optional. Maximum number of content to return. The service may return fewer than
+   *   this value. If unspecified, at most 10 content will be returned. The
+   *   maximum value is 1000; values above 1000 will be coerced to 1000.
+   * @param {string} [request.pageToken]
+   *   Optional. Page token received from a previous `ListContent` call. Provide this
+   *   to retrieve the subsequent page. When paginating, all other parameters
+   *   provided to `ListContent` must match the call that provided the page
+   *   token.
+   * @param {string} [request.filter]
+   *   Optional. Filter request. Filters are case-sensitive.
+   *   The following formats are supported:
+   *
+   *   labels.key1 = "value1"
+   *   labels:key1
+   *   type = "NOTEBOOK"
+   *   type = "SQL_SCRIPT"
+   *
+   *   These restrictions can be coinjoined with AND, OR and NOT conjunctions.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Stream}
+   *   An object stream which emits an object representing [Content]{@link google.cloud.dataplex.v1.Content} on 'data' event.
+   *   The client library will perform auto-pagination by default: it will call the API as many
+   *   times as needed. Note that it can affect your quota.
+   *   We recommend using `listContentAsync()`
+   *   method described below for async iteration which you can stop as needed.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
+   *   for more details and examples.
+   */
   listContentStream(
-      request?: protos.google.cloud.dataplex.v1.IListContentRequest,
-      options?: CallOptions):
-    Transform{
+    request?: protos.google.cloud.dataplex.v1.IListContentRequest,
+    options?: CallOptions
+  ): Transform {
     request = request || {};
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'parent': request.parent || '',
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        parent: request.parent || '',
+      });
     const defaultCallSettings = this._defaults['listContent'];
     const callSettings = defaultCallSettings.merge(options);
     this.initialize();
@@ -789,60 +879,59 @@ export class ContentServiceClient {
     );
   }
 
-/**
- * Equivalent to `listContent`, but returns an iterable object.
- *
- * `for`-`await`-`of` syntax is used with the iterable to get response elements on-demand.
- * @param {Object} request
- *   The request object that will be sent.
- * @param {string} request.parent
- *   Required. The resource name of the parent lake:
- *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
- * @param {number} [request.pageSize]
- *   Optional. Maximum number of content to return. The service may return fewer than
- *   this value. If unspecified, at most 10 content will be returned. The
- *   maximum value is 1000; values above 1000 will be coerced to 1000.
- * @param {string} [request.pageToken]
- *   Optional. Page token received from a previous `ListContent` call. Provide this
- *   to retrieve the subsequent page. When paginating, all other parameters
- *   provided to `ListContent` must match the call that provided the page
- *   token.
- * @param {string} [request.filter]
- *   Optional. Filter request. Filters are case-sensitive.
- *   The following formats are supported:
- *
- *   labels.key1 = "value1"
- *   labels:key1
- *   type = "NOTEBOOK"
- *   type = "SQL_SCRIPT"
- *
- *   These restrictions can be coinjoined with AND, OR and NOT conjunctions.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Object}
- *   An iterable Object that allows [async iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols).
- *   When you iterate the returned iterable, each element will be an object representing
- *   [Content]{@link google.cloud.dataplex.v1.Content}. The API will be called under the hood as needed, once per the page,
- *   so you can stop the iteration when you don't need more results.
- *   Please see the
- *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
- *   for more details and examples.
- * @example <caption>include:samples/generated/v1/content_service.list_content.js</caption>
- * region_tag:dataplex_v1_generated_ContentService_ListContent_async
- */
+  /**
+   * Equivalent to `listContent`, but returns an iterable object.
+   *
+   * `for`-`await`-`of` syntax is used with the iterable to get response elements on-demand.
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.parent
+   *   Required. The resource name of the parent lake:
+   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   * @param {number} [request.pageSize]
+   *   Optional. Maximum number of content to return. The service may return fewer than
+   *   this value. If unspecified, at most 10 content will be returned. The
+   *   maximum value is 1000; values above 1000 will be coerced to 1000.
+   * @param {string} [request.pageToken]
+   *   Optional. Page token received from a previous `ListContent` call. Provide this
+   *   to retrieve the subsequent page. When paginating, all other parameters
+   *   provided to `ListContent` must match the call that provided the page
+   *   token.
+   * @param {string} [request.filter]
+   *   Optional. Filter request. Filters are case-sensitive.
+   *   The following formats are supported:
+   *
+   *   labels.key1 = "value1"
+   *   labels:key1
+   *   type = "NOTEBOOK"
+   *   type = "SQL_SCRIPT"
+   *
+   *   These restrictions can be coinjoined with AND, OR and NOT conjunctions.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Object}
+   *   An iterable Object that allows [async iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols).
+   *   When you iterate the returned iterable, each element will be an object representing
+   *   [Content]{@link google.cloud.dataplex.v1.Content}. The API will be called under the hood as needed, once per the page,
+   *   so you can stop the iteration when you don't need more results.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/content_service.list_content.js</caption>
+   * region_tag:dataplex_v1_generated_ContentService_ListContent_async
+   */
   listContentAsync(
-      request?: protos.google.cloud.dataplex.v1.IListContentRequest,
-      options?: CallOptions):
-    AsyncIterable<protos.google.cloud.dataplex.v1.IContent>{
+    request?: protos.google.cloud.dataplex.v1.IListContentRequest,
+    options?: CallOptions
+  ): AsyncIterable<protos.google.cloud.dataplex.v1.IContent> {
     request = request || {};
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'parent': request.parent || '',
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        parent: request.parent || '',
+      });
     const defaultCallSettings = this._defaults['listContent'];
     const callSettings = defaultCallSettings.merge(options);
     this.initialize();
@@ -866,7 +955,13 @@ export class ContentServiceClient {
    * @param {string} asset
    * @returns {string} Resource name string.
    */
-  assetPath(project:string,location:string,lake:string,zone:string,asset:string) {
+  assetPath(
+    project: string,
+    location: string,
+    lake: string,
+    zone: string,
+    asset: string
+  ) {
     return this.pathTemplates.assetPathTemplate.render({
       project: project,
       location: location,
@@ -940,7 +1035,12 @@ export class ContentServiceClient {
    * @param {string} content
    * @returns {string} Resource name string.
    */
-  contentPath(project:string,location:string,lake:string,content:string) {
+  contentPath(
+    project: string,
+    location: string,
+    lake: string,
+    content: string
+  ) {
     return this.pathTemplates.contentPathTemplate.render({
       project: project,
       location: location,
@@ -1003,7 +1103,13 @@ export class ContentServiceClient {
    * @param {string} entity
    * @returns {string} Resource name string.
    */
-  entityPath(project:string,location:string,lake:string,zone:string,entity:string) {
+  entityPath(
+    project: string,
+    location: string,
+    lake: string,
+    zone: string,
+    entity: string
+  ) {
     return this.pathTemplates.entityPathTemplate.render({
       project: project,
       location: location,
@@ -1077,7 +1183,12 @@ export class ContentServiceClient {
    * @param {string} environment
    * @returns {string} Resource name string.
    */
-  environmentPath(project:string,location:string,lake:string,environment:string) {
+  environmentPath(
+    project: string,
+    location: string,
+    lake: string,
+    environment: string
+  ) {
     return this.pathTemplates.environmentPathTemplate.render({
       project: project,
       location: location,
@@ -1094,7 +1205,8 @@ export class ContentServiceClient {
    * @returns {string} A string representing the project.
    */
   matchProjectFromEnvironmentName(environmentName: string) {
-    return this.pathTemplates.environmentPathTemplate.match(environmentName).project;
+    return this.pathTemplates.environmentPathTemplate.match(environmentName)
+      .project;
   }
 
   /**
@@ -1105,7 +1217,8 @@ export class ContentServiceClient {
    * @returns {string} A string representing the location.
    */
   matchLocationFromEnvironmentName(environmentName: string) {
-    return this.pathTemplates.environmentPathTemplate.match(environmentName).location;
+    return this.pathTemplates.environmentPathTemplate.match(environmentName)
+      .location;
   }
 
   /**
@@ -1116,7 +1229,8 @@ export class ContentServiceClient {
    * @returns {string} A string representing the lake.
    */
   matchLakeFromEnvironmentName(environmentName: string) {
-    return this.pathTemplates.environmentPathTemplate.match(environmentName).lake;
+    return this.pathTemplates.environmentPathTemplate.match(environmentName)
+      .lake;
   }
 
   /**
@@ -1127,7 +1241,8 @@ export class ContentServiceClient {
    * @returns {string} A string representing the environment.
    */
   matchEnvironmentFromEnvironmentName(environmentName: string) {
-    return this.pathTemplates.environmentPathTemplate.match(environmentName).environment;
+    return this.pathTemplates.environmentPathTemplate.match(environmentName)
+      .environment;
   }
 
   /**
@@ -1140,7 +1255,13 @@ export class ContentServiceClient {
    * @param {string} job
    * @returns {string} Resource name string.
    */
-  jobPath(project:string,location:string,lake:string,task:string,job:string) {
+  jobPath(
+    project: string,
+    location: string,
+    lake: string,
+    task: string,
+    job: string
+  ) {
     return this.pathTemplates.jobPathTemplate.render({
       project: project,
       location: location,
@@ -1213,7 +1334,7 @@ export class ContentServiceClient {
    * @param {string} lake
    * @returns {string} Resource name string.
    */
-  lakePath(project:string,location:string,lake:string) {
+  lakePath(project: string, location: string, lake: string) {
     return this.pathTemplates.lakePathTemplate.render({
       project: project,
       location: location,
@@ -1265,7 +1386,14 @@ export class ContentServiceClient {
    * @param {string} partition
    * @returns {string} Resource name string.
    */
-  partitionPath(project:string,location:string,lake:string,zone:string,entity:string,partition:string) {
+  partitionPath(
+    project: string,
+    location: string,
+    lake: string,
+    zone: string,
+    entity: string,
+    partition: string
+  ) {
     return this.pathTemplates.partitionPathTemplate.render({
       project: project,
       location: location,
@@ -1284,7 +1412,8 @@ export class ContentServiceClient {
    * @returns {string} A string representing the project.
    */
   matchProjectFromPartitionName(partitionName: string) {
-    return this.pathTemplates.partitionPathTemplate.match(partitionName).project;
+    return this.pathTemplates.partitionPathTemplate.match(partitionName)
+      .project;
   }
 
   /**
@@ -1295,7 +1424,8 @@ export class ContentServiceClient {
    * @returns {string} A string representing the location.
    */
   matchLocationFromPartitionName(partitionName: string) {
-    return this.pathTemplates.partitionPathTemplate.match(partitionName).location;
+    return this.pathTemplates.partitionPathTemplate.match(partitionName)
+      .location;
   }
 
   /**
@@ -1339,7 +1469,8 @@ export class ContentServiceClient {
    * @returns {string} A string representing the partition.
    */
   matchPartitionFromPartitionName(partitionName: string) {
-    return this.pathTemplates.partitionPathTemplate.match(partitionName).partition;
+    return this.pathTemplates.partitionPathTemplate.match(partitionName)
+      .partition;
   }
 
   /**
@@ -1351,7 +1482,12 @@ export class ContentServiceClient {
    * @param {string} action
    * @returns {string} Resource name string.
    */
-  projectLocationLakeActionPath(project:string,location:string,lake:string,action:string) {
+  projectLocationLakeActionPath(
+    project: string,
+    location: string,
+    lake: string,
+    action: string
+  ) {
     return this.pathTemplates.projectLocationLakeActionPathTemplate.render({
       project: project,
       location: location,
@@ -1367,8 +1503,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_action resource.
    * @returns {string} A string representing the project.
    */
-  matchProjectFromProjectLocationLakeActionName(projectLocationLakeActionName: string) {
-    return this.pathTemplates.projectLocationLakeActionPathTemplate.match(projectLocationLakeActionName).project;
+  matchProjectFromProjectLocationLakeActionName(
+    projectLocationLakeActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeActionPathTemplate.match(
+      projectLocationLakeActionName
+    ).project;
   }
 
   /**
@@ -1378,8 +1518,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_action resource.
    * @returns {string} A string representing the location.
    */
-  matchLocationFromProjectLocationLakeActionName(projectLocationLakeActionName: string) {
-    return this.pathTemplates.projectLocationLakeActionPathTemplate.match(projectLocationLakeActionName).location;
+  matchLocationFromProjectLocationLakeActionName(
+    projectLocationLakeActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeActionPathTemplate.match(
+      projectLocationLakeActionName
+    ).location;
   }
 
   /**
@@ -1389,8 +1533,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_action resource.
    * @returns {string} A string representing the lake.
    */
-  matchLakeFromProjectLocationLakeActionName(projectLocationLakeActionName: string) {
-    return this.pathTemplates.projectLocationLakeActionPathTemplate.match(projectLocationLakeActionName).lake;
+  matchLakeFromProjectLocationLakeActionName(
+    projectLocationLakeActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeActionPathTemplate.match(
+      projectLocationLakeActionName
+    ).lake;
   }
 
   /**
@@ -1400,8 +1548,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_action resource.
    * @returns {string} A string representing the action.
    */
-  matchActionFromProjectLocationLakeActionName(projectLocationLakeActionName: string) {
-    return this.pathTemplates.projectLocationLakeActionPathTemplate.match(projectLocationLakeActionName).action;
+  matchActionFromProjectLocationLakeActionName(
+    projectLocationLakeActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeActionPathTemplate.match(
+      projectLocationLakeActionName
+    ).action;
   }
 
   /**
@@ -1414,7 +1566,13 @@ export class ContentServiceClient {
    * @param {string} action
    * @returns {string} Resource name string.
    */
-  projectLocationLakeZoneActionPath(project:string,location:string,lake:string,zone:string,action:string) {
+  projectLocationLakeZoneActionPath(
+    project: string,
+    location: string,
+    lake: string,
+    zone: string,
+    action: string
+  ) {
     return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.render({
       project: project,
       location: location,
@@ -1431,8 +1589,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_action resource.
    * @returns {string} A string representing the project.
    */
-  matchProjectFromProjectLocationLakeZoneActionName(projectLocationLakeZoneActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(projectLocationLakeZoneActionName).project;
+  matchProjectFromProjectLocationLakeZoneActionName(
+    projectLocationLakeZoneActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(
+      projectLocationLakeZoneActionName
+    ).project;
   }
 
   /**
@@ -1442,8 +1604,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_action resource.
    * @returns {string} A string representing the location.
    */
-  matchLocationFromProjectLocationLakeZoneActionName(projectLocationLakeZoneActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(projectLocationLakeZoneActionName).location;
+  matchLocationFromProjectLocationLakeZoneActionName(
+    projectLocationLakeZoneActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(
+      projectLocationLakeZoneActionName
+    ).location;
   }
 
   /**
@@ -1453,8 +1619,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_action resource.
    * @returns {string} A string representing the lake.
    */
-  matchLakeFromProjectLocationLakeZoneActionName(projectLocationLakeZoneActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(projectLocationLakeZoneActionName).lake;
+  matchLakeFromProjectLocationLakeZoneActionName(
+    projectLocationLakeZoneActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(
+      projectLocationLakeZoneActionName
+    ).lake;
   }
 
   /**
@@ -1464,8 +1634,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_action resource.
    * @returns {string} A string representing the zone.
    */
-  matchZoneFromProjectLocationLakeZoneActionName(projectLocationLakeZoneActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(projectLocationLakeZoneActionName).zone;
+  matchZoneFromProjectLocationLakeZoneActionName(
+    projectLocationLakeZoneActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(
+      projectLocationLakeZoneActionName
+    ).zone;
   }
 
   /**
@@ -1475,8 +1649,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_action resource.
    * @returns {string} A string representing the action.
    */
-  matchActionFromProjectLocationLakeZoneActionName(projectLocationLakeZoneActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(projectLocationLakeZoneActionName).action;
+  matchActionFromProjectLocationLakeZoneActionName(
+    projectLocationLakeZoneActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneActionPathTemplate.match(
+      projectLocationLakeZoneActionName
+    ).action;
   }
 
   /**
@@ -1490,15 +1668,24 @@ export class ContentServiceClient {
    * @param {string} action
    * @returns {string} Resource name string.
    */
-  projectLocationLakeZoneAssetActionPath(project:string,location:string,lake:string,zone:string,asset:string,action:string) {
-    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.render({
-      project: project,
-      location: location,
-      lake: lake,
-      zone: zone,
-      asset: asset,
-      action: action,
-    });
+  projectLocationLakeZoneAssetActionPath(
+    project: string,
+    location: string,
+    lake: string,
+    zone: string,
+    asset: string,
+    action: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.render(
+      {
+        project: project,
+        location: location,
+        lake: lake,
+        zone: zone,
+        asset: asset,
+        action: action,
+      }
+    );
   }
 
   /**
@@ -1508,8 +1695,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_asset_action resource.
    * @returns {string} A string representing the project.
    */
-  matchProjectFromProjectLocationLakeZoneAssetActionName(projectLocationLakeZoneAssetActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(projectLocationLakeZoneAssetActionName).project;
+  matchProjectFromProjectLocationLakeZoneAssetActionName(
+    projectLocationLakeZoneAssetActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(
+      projectLocationLakeZoneAssetActionName
+    ).project;
   }
 
   /**
@@ -1519,8 +1710,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_asset_action resource.
    * @returns {string} A string representing the location.
    */
-  matchLocationFromProjectLocationLakeZoneAssetActionName(projectLocationLakeZoneAssetActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(projectLocationLakeZoneAssetActionName).location;
+  matchLocationFromProjectLocationLakeZoneAssetActionName(
+    projectLocationLakeZoneAssetActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(
+      projectLocationLakeZoneAssetActionName
+    ).location;
   }
 
   /**
@@ -1530,8 +1725,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_asset_action resource.
    * @returns {string} A string representing the lake.
    */
-  matchLakeFromProjectLocationLakeZoneAssetActionName(projectLocationLakeZoneAssetActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(projectLocationLakeZoneAssetActionName).lake;
+  matchLakeFromProjectLocationLakeZoneAssetActionName(
+    projectLocationLakeZoneAssetActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(
+      projectLocationLakeZoneAssetActionName
+    ).lake;
   }
 
   /**
@@ -1541,8 +1740,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_asset_action resource.
    * @returns {string} A string representing the zone.
    */
-  matchZoneFromProjectLocationLakeZoneAssetActionName(projectLocationLakeZoneAssetActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(projectLocationLakeZoneAssetActionName).zone;
+  matchZoneFromProjectLocationLakeZoneAssetActionName(
+    projectLocationLakeZoneAssetActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(
+      projectLocationLakeZoneAssetActionName
+    ).zone;
   }
 
   /**
@@ -1552,8 +1755,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_asset_action resource.
    * @returns {string} A string representing the asset.
    */
-  matchAssetFromProjectLocationLakeZoneAssetActionName(projectLocationLakeZoneAssetActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(projectLocationLakeZoneAssetActionName).asset;
+  matchAssetFromProjectLocationLakeZoneAssetActionName(
+    projectLocationLakeZoneAssetActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(
+      projectLocationLakeZoneAssetActionName
+    ).asset;
   }
 
   /**
@@ -1563,8 +1770,12 @@ export class ContentServiceClient {
    *   A fully-qualified path representing project_location_lake_zone_asset_action resource.
    * @returns {string} A string representing the action.
    */
-  matchActionFromProjectLocationLakeZoneAssetActionName(projectLocationLakeZoneAssetActionName: string) {
-    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(projectLocationLakeZoneAssetActionName).action;
+  matchActionFromProjectLocationLakeZoneAssetActionName(
+    projectLocationLakeZoneAssetActionName: string
+  ) {
+    return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(
+      projectLocationLakeZoneAssetActionName
+    ).action;
   }
 
   /**
@@ -1577,7 +1788,13 @@ export class ContentServiceClient {
    * @param {string} session
    * @returns {string} Resource name string.
    */
-  sessionPath(project:string,location:string,lake:string,environment:string,session:string) {
+  sessionPath(
+    project: string,
+    location: string,
+    lake: string,
+    environment: string,
+    session: string
+  ) {
     return this.pathTemplates.sessionPathTemplate.render({
       project: project,
       location: location,
@@ -1628,7 +1845,8 @@ export class ContentServiceClient {
    * @returns {string} A string representing the environment.
    */
   matchEnvironmentFromSessionName(sessionName: string) {
-    return this.pathTemplates.sessionPathTemplate.match(sessionName).environment;
+    return this.pathTemplates.sessionPathTemplate.match(sessionName)
+      .environment;
   }
 
   /**
@@ -1651,7 +1869,7 @@ export class ContentServiceClient {
    * @param {string} task
    * @returns {string} Resource name string.
    */
-  taskPath(project:string,location:string,lake:string,task:string) {
+  taskPath(project: string, location: string, lake: string, task: string) {
     return this.pathTemplates.taskPathTemplate.render({
       project: project,
       location: location,
@@ -1713,7 +1931,7 @@ export class ContentServiceClient {
    * @param {string} zone
    * @returns {string} Resource name string.
    */
-  zonePath(project:string,location:string,lake:string,zone:string) {
+  zonePath(project: string, location: string, lake: string, zone: string) {
     return this.pathTemplates.zonePathTemplate.render({
       project: project,
       location: location,

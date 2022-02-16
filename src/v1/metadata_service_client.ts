@@ -168,8 +168,14 @@ export class MetadataServiceClient {
       assetPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/assets/{asset}'
       ),
+      contentPathTemplate: new this._gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/lakes/{lake}/content/{content}'
+      ),
       entityPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/entities/{entity}'
+      ),
+      environmentPathTemplate: new this._gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/lakes/{lake}/environments/{environment}'
       ),
       jobPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/lakes/{lake}/tasks/{task}/jobs/{job}'
@@ -191,6 +197,9 @@ export class MetadataServiceClient {
         new this._gaxModule.PathTemplate(
           'projects/{project}/locations/{location}/lakes/{lake}/zones/{zone}/assets/{asset}/actions/{action}'
         ),
+      sessionPathTemplate: new this._gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/lakes/{lake}/environments/{environment}/sessions/{session}'
+      ),
       taskPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/lakes/{lake}/tasks/{task}'
       ),
@@ -265,8 +274,13 @@ export class MetadataServiceClient {
     // Iterate over each of the methods that the service provides
     // and create an API call method for each.
     const metadataServiceStubMethods = [
+      'createEntity',
+      'updateEntity',
+      'deleteEntity',
       'getEntity',
       'listEntities',
+      'createPartition',
+      'deletePartition',
       'getPartition',
       'listPartitions',
     ];
@@ -351,6 +365,273 @@ export class MetadataServiceClient {
   // -------------------
   // -- Service calls --
   // -------------------
+  /**
+   * Create a metadata entity.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.parent
+   *   Required. The resource name of the parent zone:
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}`.
+   * @param {google.cloud.dataplex.v1.Entity} request.entity
+   *   Required. Entity resource.
+   * @param {boolean} [request.validateOnly]
+   *   Optional. Only validate the request, but do not perform mutations.
+   *   The default is false.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Entity]{@link google.cloud.dataplex.v1.Entity}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/metadata_service.create_entity.js</caption>
+   * region_tag:dataplex_v1_generated_MetadataService_CreateEntity_async
+   */
+  createEntity(
+    request?: protos.google.cloud.dataplex.v1.ICreateEntityRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.ICreateEntityRequest | undefined,
+      {} | undefined
+    ]
+  >;
+  createEntity(
+    request: protos.google.cloud.dataplex.v1.ICreateEntityRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.ICreateEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  createEntity(
+    request: protos.google.cloud.dataplex.v1.ICreateEntityRequest,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.ICreateEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  createEntity(
+    request?: protos.google.cloud.dataplex.v1.ICreateEntityRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
+          protos.google.cloud.dataplex.v1.IEntity,
+          | protos.google.cloud.dataplex.v1.ICreateEntityRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.ICreateEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.ICreateEntityRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    } else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        parent: request.parent || '',
+      });
+    this.initialize();
+    return this.innerApiCalls.createEntity(request, options, callback);
+  }
+  /**
+   * Update a metadata entity. Only supports full resource update.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {google.cloud.dataplex.v1.Entity} request.entity
+   *   Required. Update description.
+   * @param {boolean} [request.validateOnly]
+   *   Optional. Only validate the request, but do not perform mutations.
+   *   The default is false.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Entity]{@link google.cloud.dataplex.v1.Entity}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/metadata_service.update_entity.js</caption>
+   * region_tag:dataplex_v1_generated_MetadataService_UpdateEntity_async
+   */
+  updateEntity(
+    request?: protos.google.cloud.dataplex.v1.IUpdateEntityRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.IUpdateEntityRequest | undefined,
+      {} | undefined
+    ]
+  >;
+  updateEntity(
+    request: protos.google.cloud.dataplex.v1.IUpdateEntityRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.IUpdateEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  updateEntity(
+    request: protos.google.cloud.dataplex.v1.IUpdateEntityRequest,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.IUpdateEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  updateEntity(
+    request?: protos.google.cloud.dataplex.v1.IUpdateEntityRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
+          protos.google.cloud.dataplex.v1.IEntity,
+          | protos.google.cloud.dataplex.v1.IUpdateEntityRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.IUpdateEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IEntity,
+      protos.google.cloud.dataplex.v1.IUpdateEntityRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    } else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'entity.name': request.entity!.name || '',
+      });
+    this.initialize();
+    return this.innerApiCalls.updateEntity(request, options, callback);
+  }
+  /**
+   * Delete a metadata entity.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   Required. The resource name of the entity:
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}`.
+   * @param {string} request.etag
+   *   Required. The etag associated with the partition if it was previously retrieved.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Empty]{@link google.protobuf.Empty}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/metadata_service.delete_entity.js</caption>
+   * region_tag:dataplex_v1_generated_MetadataService_DeleteEntity_async
+   */
+  deleteEntity(
+    request?: protos.google.cloud.dataplex.v1.IDeleteEntityRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteEntityRequest | undefined,
+      {} | undefined
+    ]
+  >;
+  deleteEntity(
+    request: protos.google.cloud.dataplex.v1.IDeleteEntityRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  deleteEntity(
+    request: protos.google.cloud.dataplex.v1.IDeleteEntityRequest,
+    callback: Callback<
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  deleteEntity(
+    request?: protos.google.cloud.dataplex.v1.IDeleteEntityRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
+          protos.google.protobuf.IEmpty,
+          | protos.google.cloud.dataplex.v1.IDeleteEntityRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteEntityRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeleteEntityRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    } else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        name: request.name || '',
+      });
+    this.initialize();
+    return this.innerApiCalls.deleteEntity(request, options, callback);
+  }
   /**
    * Get a metadata entity.
    *
@@ -439,13 +720,209 @@ export class MetadataServiceClient {
     return this.innerApiCalls.getEntity(request, options, callback);
   }
   /**
+   * Create a metadata partition.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.parent
+   *   Required. The resource name of the parent zone:
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}`.
+   * @param {google.cloud.dataplex.v1.Partition} request.partition
+   *   Required. Partition resource.
+   * @param {boolean} [request.validateOnly]
+   *   Optional. Only validate the request, but do not perform mutations.
+   *   The default is false.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Partition]{@link google.cloud.dataplex.v1.Partition}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/metadata_service.create_partition.js</caption>
+   * region_tag:dataplex_v1_generated_MetadataService_CreatePartition_async
+   */
+  createPartition(
+    request?: protos.google.cloud.dataplex.v1.ICreatePartitionRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IPartition,
+      protos.google.cloud.dataplex.v1.ICreatePartitionRequest | undefined,
+      {} | undefined
+    ]
+  >;
+  createPartition(
+    request: protos.google.cloud.dataplex.v1.ICreatePartitionRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IPartition,
+      | protos.google.cloud.dataplex.v1.ICreatePartitionRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  createPartition(
+    request: protos.google.cloud.dataplex.v1.ICreatePartitionRequest,
+    callback: Callback<
+      protos.google.cloud.dataplex.v1.IPartition,
+      | protos.google.cloud.dataplex.v1.ICreatePartitionRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  createPartition(
+    request?: protos.google.cloud.dataplex.v1.ICreatePartitionRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
+          protos.google.cloud.dataplex.v1.IPartition,
+          | protos.google.cloud.dataplex.v1.ICreatePartitionRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.cloud.dataplex.v1.IPartition,
+      | protos.google.cloud.dataplex.v1.ICreatePartitionRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.cloud.dataplex.v1.IPartition,
+      protos.google.cloud.dataplex.v1.ICreatePartitionRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    } else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        parent: request.parent || '',
+      });
+    this.initialize();
+    return this.innerApiCalls.createPartition(request, options, callback);
+  }
+  /**
+   * Delete a metadata partition.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   Required. The resource name of the partition.
+   *   format:
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}/partitions/{partition_value_path}`.
+   *   The {partition_value_path} segment consists of an ordered sequence of
+   *   partition values separated by "/". All values must be provided.
+   * @param {string} [request.etag]
+   *   Optional. The etag associated with the partition if it was previously retrieved.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Empty]{@link google.protobuf.Empty}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example <caption>include:samples/generated/v1/metadata_service.delete_partition.js</caption>
+   * region_tag:dataplex_v1_generated_MetadataService_DeletePartition_async
+   */
+  deletePartition(
+    request?: protos.google.cloud.dataplex.v1.IDeletePartitionRequest,
+    options?: CallOptions
+  ): Promise<
+    [
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeletePartitionRequest | undefined,
+      {} | undefined
+    ]
+  >;
+  deletePartition(
+    request: protos.google.cloud.dataplex.v1.IDeletePartitionRequest,
+    options: CallOptions,
+    callback: Callback<
+      protos.google.protobuf.IEmpty,
+      | protos.google.cloud.dataplex.v1.IDeletePartitionRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  deletePartition(
+    request: protos.google.cloud.dataplex.v1.IDeletePartitionRequest,
+    callback: Callback<
+      protos.google.protobuf.IEmpty,
+      | protos.google.cloud.dataplex.v1.IDeletePartitionRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  deletePartition(
+    request?: protos.google.cloud.dataplex.v1.IDeletePartitionRequest,
+    optionsOrCallback?:
+      | CallOptions
+      | Callback<
+          protos.google.protobuf.IEmpty,
+          | protos.google.cloud.dataplex.v1.IDeletePartitionRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.protobuf.IEmpty,
+      | protos.google.cloud.dataplex.v1.IDeletePartitionRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.protobuf.IEmpty,
+      protos.google.cloud.dataplex.v1.IDeletePartitionRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
+    request = request || {};
+    let options: CallOptions;
+    if (typeof optionsOrCallback === 'function' && callback === undefined) {
+      callback = optionsOrCallback;
+      options = {};
+    } else {
+      options = optionsOrCallback as CallOptions;
+    }
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        name: request.name || '',
+      });
+    this.initialize();
+    return this.innerApiCalls.deletePartition(request, options, callback);
+  }
+  /**
    * Get a metadata partition of an entity.
    *
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The resource name of the partition:
-   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}/partitions/{partition_id}`.
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}/partitions/{partition_value_path}`.
+   *   The {partition_value_path} segment consists of an ordered sequence of
+   *   partition values separated by "/". All values must be provided.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -537,15 +1014,22 @@ export class MetadataServiceClient {
    *   Required. Specify the entity view to make a partial list request.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of entities to return. The service may return fewer than
-   *   this value. If unspecified, at most 10 entities will be returned. The
-   *   maximum value is 1000; values above 1000 are set to 1000.
+   *   this value. If unspecified, 100 entities will be returned by default. The
+   *   maximum value is 500; larger values will will be truncated to 500.
    * @param {string} [request.pageToken]
    *   Optional. Page token received from a previous `ListEntities` call. Provide
    *   this to retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListEntities` must match the call that provided the
    *   page token.
    * @param {string} [request.filter]
-   *   Optional. Filter request by name prefix.
+   *   Optional. The following filter parameters can be added to the URL to limit the
+   *   entities returned by the API:
+   *
+   *   - Entity ID: ?filter="id=entityID"
+   *   - Asset ID: ?filter="asset=assetID"
+   *   - Data path ?filter="data_path=gs://my-bucket"
+   *   - Is HIVE compatible: ?filter=”hive_compatible=true”
+   *   - Is BigQuery compatible: ?filter=”bigquery_compatible=true”
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -639,15 +1123,22 @@ export class MetadataServiceClient {
    *   Required. Specify the entity view to make a partial list request.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of entities to return. The service may return fewer than
-   *   this value. If unspecified, at most 10 entities will be returned. The
-   *   maximum value is 1000; values above 1000 are set to 1000.
+   *   this value. If unspecified, 100 entities will be returned by default. The
+   *   maximum value is 500; larger values will will be truncated to 500.
    * @param {string} [request.pageToken]
    *   Optional. Page token received from a previous `ListEntities` call. Provide
    *   this to retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListEntities` must match the call that provided the
    *   page token.
    * @param {string} [request.filter]
-   *   Optional. Filter request by name prefix.
+   *   Optional. The following filter parameters can be added to the URL to limit the
+   *   entities returned by the API:
+   *
+   *   - Entity ID: ?filter="id=entityID"
+   *   - Asset ID: ?filter="asset=assetID"
+   *   - Data path ?filter="data_path=gs://my-bucket"
+   *   - Is HIVE compatible: ?filter=”hive_compatible=true”
+   *   - Is BigQuery compatible: ?filter=”bigquery_compatible=true”
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Stream}
@@ -695,15 +1186,22 @@ export class MetadataServiceClient {
    *   Required. Specify the entity view to make a partial list request.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of entities to return. The service may return fewer than
-   *   this value. If unspecified, at most 10 entities will be returned. The
-   *   maximum value is 1000; values above 1000 are set to 1000.
+   *   this value. If unspecified, 100 entities will be returned by default. The
+   *   maximum value is 500; larger values will will be truncated to 500.
    * @param {string} [request.pageToken]
    *   Optional. Page token received from a previous `ListEntities` call. Provide
    *   this to retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListEntities` must match the call that provided the
    *   page token.
    * @param {string} [request.filter]
-   *   Optional. Filter request by name prefix.
+   *   Optional. The following filter parameters can be added to the URL to limit the
+   *   entities returned by the API:
+   *
+   *   - Entity ID: ?filter="id=entityID"
+   *   - Asset ID: ?filter="asset=assetID"
+   *   - Data path ?filter="data_path=gs://my-bucket"
+   *   - Is HIVE compatible: ?filter=”hive_compatible=true”
+   *   - Is BigQuery compatible: ?filter=”bigquery_compatible=true”
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Object}
@@ -748,15 +1246,33 @@ export class MetadataServiceClient {
    *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of partitions to return. The service may return fewer than
-   *   this value. If unspecified, at most 10 partitions will be returned. The
-   *   maximum value is 1000; values above 1000 will be coerced to 1000.
+   *   this value. If unspecified, 100 partitions will be returned by default. The
+   *   maximum page size is 500; larger values will will be truncated to 500.
    * @param {string} [request.pageToken]
    *   Optional. Page token received from a previous `ListPartitions` call. Provide
    *   this to retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListPartitions` must match the call that provided the
    *   page token.
    * @param {string} [request.filter]
-   *   Optional. Filter request.
+   *   Optional. Filter the partitions returned to the caller using a key vslue pair
+   *   expression. The filter expression supports:
+   *
+   *   - logical operators: AND, OR
+   *   - comparison operators: <, >, >=, <= ,=, !=
+   *   - LIKE operators:
+   *       - The right hand of a LIKE operator supports “.” and
+   *         “*” for wildcard searches, for example "value1 LIKE ".*oo.*"
+   *   - parenthetical grouping: ( )
+   *
+   *   Sample filter expression: `?filter="key1 < value1 OR key2 > value2"
+   *
+   *   **Notes:**
+   *
+   *   - Keys to the left of operators are case insensitive.
+   *   - Partition results are sorted first by creation time, then by
+   *     lexicographic order.
+   *   - Up to 20 key value filter pairs are allowed, but due to performance
+   *     considerations, only the first 10 will be used as a filter.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -854,15 +1370,33 @@ export class MetadataServiceClient {
    *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of partitions to return. The service may return fewer than
-   *   this value. If unspecified, at most 10 partitions will be returned. The
-   *   maximum value is 1000; values above 1000 will be coerced to 1000.
+   *   this value. If unspecified, 100 partitions will be returned by default. The
+   *   maximum page size is 500; larger values will will be truncated to 500.
    * @param {string} [request.pageToken]
    *   Optional. Page token received from a previous `ListPartitions` call. Provide
    *   this to retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListPartitions` must match the call that provided the
    *   page token.
    * @param {string} [request.filter]
-   *   Optional. Filter request.
+   *   Optional. Filter the partitions returned to the caller using a key vslue pair
+   *   expression. The filter expression supports:
+   *
+   *   - logical operators: AND, OR
+   *   - comparison operators: <, >, >=, <= ,=, !=
+   *   - LIKE operators:
+   *       - The right hand of a LIKE operator supports “.” and
+   *         “*” for wildcard searches, for example "value1 LIKE ".*oo.*"
+   *   - parenthetical grouping: ( )
+   *
+   *   Sample filter expression: `?filter="key1 < value1 OR key2 > value2"
+   *
+   *   **Notes:**
+   *
+   *   - Keys to the left of operators are case insensitive.
+   *   - Partition results are sorted first by creation time, then by
+   *     lexicographic order.
+   *   - Up to 20 key value filter pairs are allowed, but due to performance
+   *     considerations, only the first 10 will be used as a filter.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Stream}
@@ -908,15 +1442,33 @@ export class MetadataServiceClient {
    *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}/entities/{entity_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of partitions to return. The service may return fewer than
-   *   this value. If unspecified, at most 10 partitions will be returned. The
-   *   maximum value is 1000; values above 1000 will be coerced to 1000.
+   *   this value. If unspecified, 100 partitions will be returned by default. The
+   *   maximum page size is 500; larger values will will be truncated to 500.
    * @param {string} [request.pageToken]
    *   Optional. Page token received from a previous `ListPartitions` call. Provide
    *   this to retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListPartitions` must match the call that provided the
    *   page token.
    * @param {string} [request.filter]
-   *   Optional. Filter request.
+   *   Optional. Filter the partitions returned to the caller using a key vslue pair
+   *   expression. The filter expression supports:
+   *
+   *   - logical operators: AND, OR
+   *   - comparison operators: <, >, >=, <= ,=, !=
+   *   - LIKE operators:
+   *       - The right hand of a LIKE operator supports “.” and
+   *         “*” for wildcard searches, for example "value1 LIKE ".*oo.*"
+   *   - parenthetical grouping: ( )
+   *
+   *   Sample filter expression: `?filter="key1 < value1 OR key2 > value2"
+   *
+   *   **Notes:**
+   *
+   *   - Keys to the left of operators are case insensitive.
+   *   - Partition results are sorted first by creation time, then by
+   *     lexicographic order.
+   *   - Up to 20 key value filter pairs are allowed, but due to performance
+   *     considerations, only the first 10 will be used as a filter.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Object}
@@ -1037,6 +1589,73 @@ export class MetadataServiceClient {
   }
 
   /**
+   * Return a fully-qualified content resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} lake
+   * @param {string} content
+   * @returns {string} Resource name string.
+   */
+  contentPath(
+    project: string,
+    location: string,
+    lake: string,
+    content: string
+  ) {
+    return this.pathTemplates.contentPathTemplate.render({
+      project: project,
+      location: location,
+      lake: lake,
+      content: content,
+    });
+  }
+
+  /**
+   * Parse the project from Content resource.
+   *
+   * @param {string} contentName
+   *   A fully-qualified path representing Content resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromContentName(contentName: string) {
+    return this.pathTemplates.contentPathTemplate.match(contentName).project;
+  }
+
+  /**
+   * Parse the location from Content resource.
+   *
+   * @param {string} contentName
+   *   A fully-qualified path representing Content resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromContentName(contentName: string) {
+    return this.pathTemplates.contentPathTemplate.match(contentName).location;
+  }
+
+  /**
+   * Parse the lake from Content resource.
+   *
+   * @param {string} contentName
+   *   A fully-qualified path representing Content resource.
+   * @returns {string} A string representing the lake.
+   */
+  matchLakeFromContentName(contentName: string) {
+    return this.pathTemplates.contentPathTemplate.match(contentName).lake;
+  }
+
+  /**
+   * Parse the content from Content resource.
+   *
+   * @param {string} contentName
+   *   A fully-qualified path representing Content resource.
+   * @returns {string} A string representing the content.
+   */
+  matchContentFromContentName(contentName: string) {
+    return this.pathTemplates.contentPathTemplate.match(contentName).content;
+  }
+
+  /**
    * Return a fully-qualified entity resource name string.
    *
    * @param {string} project
@@ -1115,6 +1734,77 @@ export class MetadataServiceClient {
    */
   matchEntityFromEntityName(entityName: string) {
     return this.pathTemplates.entityPathTemplate.match(entityName).entity;
+  }
+
+  /**
+   * Return a fully-qualified environment resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} lake
+   * @param {string} environment
+   * @returns {string} Resource name string.
+   */
+  environmentPath(
+    project: string,
+    location: string,
+    lake: string,
+    environment: string
+  ) {
+    return this.pathTemplates.environmentPathTemplate.render({
+      project: project,
+      location: location,
+      lake: lake,
+      environment: environment,
+    });
+  }
+
+  /**
+   * Parse the project from Environment resource.
+   *
+   * @param {string} environmentName
+   *   A fully-qualified path representing Environment resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromEnvironmentName(environmentName: string) {
+    return this.pathTemplates.environmentPathTemplate.match(environmentName)
+      .project;
+  }
+
+  /**
+   * Parse the location from Environment resource.
+   *
+   * @param {string} environmentName
+   *   A fully-qualified path representing Environment resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromEnvironmentName(environmentName: string) {
+    return this.pathTemplates.environmentPathTemplate.match(environmentName)
+      .location;
+  }
+
+  /**
+   * Parse the lake from Environment resource.
+   *
+   * @param {string} environmentName
+   *   A fully-qualified path representing Environment resource.
+   * @returns {string} A string representing the lake.
+   */
+  matchLakeFromEnvironmentName(environmentName: string) {
+    return this.pathTemplates.environmentPathTemplate.match(environmentName)
+      .lake;
+  }
+
+  /**
+   * Parse the environment from Environment resource.
+   *
+   * @param {string} environmentName
+   *   A fully-qualified path representing Environment resource.
+   * @returns {string} A string representing the environment.
+   */
+  matchEnvironmentFromEnvironmentName(environmentName: string) {
+    return this.pathTemplates.environmentPathTemplate.match(environmentName)
+      .environment;
   }
 
   /**
@@ -1648,6 +2338,88 @@ export class MetadataServiceClient {
     return this.pathTemplates.projectLocationLakeZoneAssetActionPathTemplate.match(
       projectLocationLakeZoneAssetActionName
     ).action;
+  }
+
+  /**
+   * Return a fully-qualified session resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} lake
+   * @param {string} environment
+   * @param {string} session
+   * @returns {string} Resource name string.
+   */
+  sessionPath(
+    project: string,
+    location: string,
+    lake: string,
+    environment: string,
+    session: string
+  ) {
+    return this.pathTemplates.sessionPathTemplate.render({
+      project: project,
+      location: location,
+      lake: lake,
+      environment: environment,
+      session: session,
+    });
+  }
+
+  /**
+   * Parse the project from Session resource.
+   *
+   * @param {string} sessionName
+   *   A fully-qualified path representing Session resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromSessionName(sessionName: string) {
+    return this.pathTemplates.sessionPathTemplate.match(sessionName).project;
+  }
+
+  /**
+   * Parse the location from Session resource.
+   *
+   * @param {string} sessionName
+   *   A fully-qualified path representing Session resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromSessionName(sessionName: string) {
+    return this.pathTemplates.sessionPathTemplate.match(sessionName).location;
+  }
+
+  /**
+   * Parse the lake from Session resource.
+   *
+   * @param {string} sessionName
+   *   A fully-qualified path representing Session resource.
+   * @returns {string} A string representing the lake.
+   */
+  matchLakeFromSessionName(sessionName: string) {
+    return this.pathTemplates.sessionPathTemplate.match(sessionName).lake;
+  }
+
+  /**
+   * Parse the environment from Session resource.
+   *
+   * @param {string} sessionName
+   *   A fully-qualified path representing Session resource.
+   * @returns {string} A string representing the environment.
+   */
+  matchEnvironmentFromSessionName(sessionName: string) {
+    return this.pathTemplates.sessionPathTemplate.match(sessionName)
+      .environment;
+  }
+
+  /**
+   * Parse the session from Session resource.
+   *
+   * @param {string} sessionName
+   *   A fully-qualified path representing Session resource.
+   * @returns {string} A string representing the session.
+   */
+  matchSessionFromSessionName(sessionName: string) {
+    return this.pathTemplates.sessionPathTemplate.match(sessionName).session;
   }
 
   /**
