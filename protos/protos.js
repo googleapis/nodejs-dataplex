@@ -11266,7 +11266,7 @@
                         };
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService#createContent}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService|createContent}.
                          * @memberof google.cloud.dataplex.v1.ContentService
                          * @typedef CreateContentCallback
                          * @type {function}
@@ -11299,7 +11299,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService#updateContent}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService|updateContent}.
                          * @memberof google.cloud.dataplex.v1.ContentService
                          * @typedef UpdateContentCallback
                          * @type {function}
@@ -11332,7 +11332,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService#deleteContent}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService|deleteContent}.
                          * @memberof google.cloud.dataplex.v1.ContentService
                          * @typedef DeleteContentCallback
                          * @type {function}
@@ -11365,7 +11365,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService#getContent}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService|getContent}.
                          * @memberof google.cloud.dataplex.v1.ContentService
                          * @typedef GetContentCallback
                          * @type {function}
@@ -11398,7 +11398,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService#listContent}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.ContentService|listContent}.
                          * @memberof google.cloud.dataplex.v1.ContentService
                          * @typedef ListContentCallback
                          * @type {function}
@@ -15470,7 +15470,7 @@
                         };
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#createEntity}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|createEntity}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef CreateEntityCallback
                          * @type {function}
@@ -15503,7 +15503,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#updateEntity}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|updateEntity}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef UpdateEntityCallback
                          * @type {function}
@@ -15536,7 +15536,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#deleteEntity}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|deleteEntity}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef DeleteEntityCallback
                          * @type {function}
@@ -15569,7 +15569,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#getEntity}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|getEntity}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef GetEntityCallback
                          * @type {function}
@@ -15602,7 +15602,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#listEntities}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|listEntities}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef ListEntitiesCallback
                          * @type {function}
@@ -15635,7 +15635,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#createPartition}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|createPartition}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef CreatePartitionCallback
                          * @type {function}
@@ -15668,7 +15668,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#deletePartition}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|deletePartition}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef DeletePartitionCallback
                          * @type {function}
@@ -15701,7 +15701,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#getPartition}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|getPartition}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef GetPartitionCallback
                          * @type {function}
@@ -15734,7 +15734,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#listPartitions}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|listPartitions}.
                          * @memberof google.cloud.dataplex.v1.MetadataService
                          * @typedef ListPartitionsCallback
                          * @type {function}
@@ -21661,7 +21661,7 @@
                         };
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createLake}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createLake}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef CreateLakeCallback
                          * @type {function}
@@ -21694,7 +21694,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateLake}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateLake}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef UpdateLakeCallback
                          * @type {function}
@@ -21727,7 +21727,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteLake}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteLake}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef DeleteLakeCallback
                          * @type {function}
@@ -21760,7 +21760,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listLakes}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listLakes}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListLakesCallback
                          * @type {function}
@@ -21793,7 +21793,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getLake}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getLake}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef GetLakeCallback
                          * @type {function}
@@ -21826,7 +21826,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listLakeActions}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listLakeActions}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListLakeActionsCallback
                          * @type {function}
@@ -21859,7 +21859,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createZone}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createZone}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef CreateZoneCallback
                          * @type {function}
@@ -21892,7 +21892,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateZone}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateZone}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef UpdateZoneCallback
                          * @type {function}
@@ -21925,7 +21925,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteZone}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteZone}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef DeleteZoneCallback
                          * @type {function}
@@ -21958,7 +21958,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listZones}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listZones}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListZonesCallback
                          * @type {function}
@@ -21991,7 +21991,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getZone}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getZone}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef GetZoneCallback
                          * @type {function}
@@ -22024,7 +22024,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listZoneActions}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listZoneActions}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListZoneActionsCallback
                          * @type {function}
@@ -22057,7 +22057,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createAsset}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createAsset}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef CreateAssetCallback
                          * @type {function}
@@ -22090,7 +22090,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateAsset}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateAsset}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef UpdateAssetCallback
                          * @type {function}
@@ -22123,7 +22123,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteAsset}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteAsset}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef DeleteAssetCallback
                          * @type {function}
@@ -22156,7 +22156,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listAssets}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listAssets}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListAssetsCallback
                          * @type {function}
@@ -22189,7 +22189,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getAsset}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getAsset}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef GetAssetCallback
                          * @type {function}
@@ -22222,7 +22222,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listAssetActions}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listAssetActions}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListAssetActionsCallback
                          * @type {function}
@@ -22255,7 +22255,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createTask}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createTask}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef CreateTaskCallback
                          * @type {function}
@@ -22288,7 +22288,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateTask}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateTask}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef UpdateTaskCallback
                          * @type {function}
@@ -22321,7 +22321,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteTask}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteTask}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef DeleteTaskCallback
                          * @type {function}
@@ -22354,7 +22354,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listTasks}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listTasks}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListTasksCallback
                          * @type {function}
@@ -22387,7 +22387,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getTask}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getTask}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef GetTaskCallback
                          * @type {function}
@@ -22420,7 +22420,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listJobs}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listJobs}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListJobsCallback
                          * @type {function}
@@ -22453,7 +22453,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getJob}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getJob}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef GetJobCallback
                          * @type {function}
@@ -22486,7 +22486,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#cancelJob}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|cancelJob}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef CancelJobCallback
                          * @type {function}
@@ -22519,7 +22519,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createEnvironment}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createEnvironment}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef CreateEnvironmentCallback
                          * @type {function}
@@ -22552,7 +22552,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateEnvironment}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateEnvironment}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef UpdateEnvironmentCallback
                          * @type {function}
@@ -22585,7 +22585,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteEnvironment}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteEnvironment}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef DeleteEnvironmentCallback
                          * @type {function}
@@ -22618,7 +22618,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listEnvironments}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listEnvironments}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListEnvironmentsCallback
                          * @type {function}
@@ -22651,7 +22651,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getEnvironment}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getEnvironment}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef GetEnvironmentCallback
                          * @type {function}
@@ -22684,7 +22684,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listSessions}.
+                         * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listSessions}.
                          * @memberof google.cloud.dataplex.v1.DataplexService
                          * @typedef ListSessionsCallback
                          * @type {function}
@@ -42165,6 +42165,7 @@
                  * @property {boolean|null} [packed] FieldOptions packed
                  * @property {google.protobuf.FieldOptions.JSType|null} [jstype] FieldOptions jstype
                  * @property {boolean|null} [lazy] FieldOptions lazy
+                 * @property {boolean|null} [unverifiedLazy] FieldOptions unverifiedLazy
                  * @property {boolean|null} [deprecated] FieldOptions deprecated
                  * @property {boolean|null} [weak] FieldOptions weak
                  * @property {Array.<google.protobuf.IUninterpretedOption>|null} [uninterpretedOption] FieldOptions uninterpretedOption
@@ -42220,6 +42221,14 @@
                  * @instance
                  */
                 FieldOptions.prototype.lazy = false;
+    
+                /**
+                 * FieldOptions unverifiedLazy.
+                 * @member {boolean} unverifiedLazy
+                 * @memberof google.protobuf.FieldOptions
+                 * @instance
+                 */
+                FieldOptions.prototype.unverifiedLazy = false;
     
                 /**
                  * FieldOptions deprecated.
@@ -42297,6 +42306,8 @@
                         writer.uint32(/* id 6, wireType 0 =*/48).int32(message.jstype);
                     if (message.weak != null && Object.hasOwnProperty.call(message, "weak"))
                         writer.uint32(/* id 10, wireType 0 =*/80).bool(message.weak);
+                    if (message.unverifiedLazy != null && Object.hasOwnProperty.call(message, "unverifiedLazy"))
+                        writer.uint32(/* id 15, wireType 0 =*/120).bool(message.unverifiedLazy);
                     if (message.uninterpretedOption != null && message.uninterpretedOption.length)
                         for (var i = 0; i < message.uninterpretedOption.length; ++i)
                             $root.google.protobuf.UninterpretedOption.encode(message.uninterpretedOption[i], writer.uint32(/* id 999, wireType 2 =*/7994).fork()).ldelim();
@@ -42353,6 +42364,9 @@
                             break;
                         case 5:
                             message.lazy = reader.bool();
+                            break;
+                        case 15:
+                            message.unverifiedLazy = reader.bool();
                             break;
                         case 3:
                             message.deprecated = reader.bool();
@@ -42437,6 +42451,9 @@
                     if (message.lazy != null && message.hasOwnProperty("lazy"))
                         if (typeof message.lazy !== "boolean")
                             return "lazy: boolean expected";
+                    if (message.unverifiedLazy != null && message.hasOwnProperty("unverifiedLazy"))
+                        if (typeof message.unverifiedLazy !== "boolean")
+                            return "unverifiedLazy: boolean expected";
                     if (message.deprecated != null && message.hasOwnProperty("deprecated"))
                         if (typeof message.deprecated !== "boolean")
                             return "deprecated: boolean expected";
@@ -42522,6 +42539,8 @@
                     }
                     if (object.lazy != null)
                         message.lazy = Boolean(object.lazy);
+                    if (object.unverifiedLazy != null)
+                        message.unverifiedLazy = Boolean(object.unverifiedLazy);
                     if (object.deprecated != null)
                         message.deprecated = Boolean(object.deprecated);
                     if (object.weak != null)
@@ -42609,6 +42628,7 @@
                         object.lazy = false;
                         object.jstype = options.enums === String ? "JS_NORMAL" : 0;
                         object.weak = false;
+                        object.unverifiedLazy = false;
                         object[".google.api.resourceReference"] = null;
                     }
                     if (message.ctype != null && message.hasOwnProperty("ctype"))
@@ -42623,6 +42643,8 @@
                         object.jstype = options.enums === String ? $root.google.protobuf.FieldOptions.JSType[message.jstype] : message.jstype;
                     if (message.weak != null && message.hasOwnProperty("weak"))
                         object.weak = message.weak;
+                    if (message.unverifiedLazy != null && message.hasOwnProperty("unverifiedLazy"))
+                        object.unverifiedLazy = message.unverifiedLazy;
                     if (message.uninterpretedOption && message.uninterpretedOption.length) {
                         object.uninterpretedOption = [];
                         for (var j = 0; j < message.uninterpretedOption.length; ++j)
@@ -46735,7 +46757,7 @@
                 };
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#listOperations}.
+                 * Callback as used by {@link google.longrunning.Operations|listOperations}.
                  * @memberof google.longrunning.Operations
                  * @typedef ListOperationsCallback
                  * @type {function}
@@ -46768,7 +46790,7 @@
                  */
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#getOperation}.
+                 * Callback as used by {@link google.longrunning.Operations|getOperation}.
                  * @memberof google.longrunning.Operations
                  * @typedef GetOperationCallback
                  * @type {function}
@@ -46801,7 +46823,7 @@
                  */
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#deleteOperation}.
+                 * Callback as used by {@link google.longrunning.Operations|deleteOperation}.
                  * @memberof google.longrunning.Operations
                  * @typedef DeleteOperationCallback
                  * @type {function}
@@ -46834,7 +46856,7 @@
                  */
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#cancelOperation}.
+                 * Callback as used by {@link google.longrunning.Operations|cancelOperation}.
                  * @memberof google.longrunning.Operations
                  * @typedef CancelOperationCallback
                  * @type {function}
@@ -46867,7 +46889,7 @@
                  */
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#waitOperation}.
+                 * Callback as used by {@link google.longrunning.Operations|waitOperation}.
                  * @memberof google.longrunning.Operations
                  * @typedef WaitOperationCallback
                  * @type {function}
