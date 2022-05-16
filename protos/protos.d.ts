@@ -4423,35 +4423,35 @@ export namespace google {
                 namespace ContentService {
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService|createContent}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService#createContent}.
                      * @param error Error, if any
                      * @param [response] Content
                      */
                     type CreateContentCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Content) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService|updateContent}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService#updateContent}.
                      * @param error Error, if any
                      * @param [response] Content
                      */
                     type UpdateContentCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Content) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService|deleteContent}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService#deleteContent}.
                      * @param error Error, if any
                      * @param [response] Empty
                      */
                     type DeleteContentCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService|getContent}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService#getContent}.
                      * @param error Error, if any
                      * @param [response] Content
                      */
                     type GetContentCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Content) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService|listContent}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.ContentService#listContent}.
                      * @param error Error, if any
                      * @param [response] ListContentResponse
                      */
@@ -6180,63 +6180,63 @@ export namespace google {
                 namespace MetadataService {
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|createEntity}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#createEntity}.
                      * @param error Error, if any
                      * @param [response] Entity
                      */
                     type CreateEntityCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Entity) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|updateEntity}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#updateEntity}.
                      * @param error Error, if any
                      * @param [response] Entity
                      */
                     type UpdateEntityCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Entity) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|deleteEntity}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#deleteEntity}.
                      * @param error Error, if any
                      * @param [response] Empty
                      */
                     type DeleteEntityCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|getEntity}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#getEntity}.
                      * @param error Error, if any
                      * @param [response] Entity
                      */
                     type GetEntityCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Entity) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|listEntities}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#listEntities}.
                      * @param error Error, if any
                      * @param [response] ListEntitiesResponse
                      */
                     type ListEntitiesCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListEntitiesResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|createPartition}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#createPartition}.
                      * @param error Error, if any
                      * @param [response] Partition
                      */
                     type CreatePartitionCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Partition) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|deletePartition}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#deletePartition}.
                      * @param error Error, if any
                      * @param [response] Empty
                      */
                     type DeletePartitionCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|getPartition}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#getPartition}.
                      * @param error Error, if any
                      * @param [response] Partition
                      */
                     type GetPartitionCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Partition) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService|listPartitions}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.MetadataService#listPartitions}.
                      * @param error Error, if any
                      * @param [response] ListPartitionsResponse
                      */
@@ -9025,224 +9025,224 @@ export namespace google {
                 namespace DataplexService {
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createLake}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createLake}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateLakeCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateLake}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateLake}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateLakeCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteLake}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteLake}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type DeleteLakeCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listLakes}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listLakes}.
                      * @param error Error, if any
                      * @param [response] ListLakesResponse
                      */
                     type ListLakesCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListLakesResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getLake}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getLake}.
                      * @param error Error, if any
                      * @param [response] Lake
                      */
                     type GetLakeCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Lake) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listLakeActions}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listLakeActions}.
                      * @param error Error, if any
                      * @param [response] ListActionsResponse
                      */
                     type ListLakeActionsCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListActionsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createZone}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createZone}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateZoneCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateZone}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateZone}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateZoneCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteZone}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteZone}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type DeleteZoneCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listZones}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listZones}.
                      * @param error Error, if any
                      * @param [response] ListZonesResponse
                      */
                     type ListZonesCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListZonesResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getZone}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getZone}.
                      * @param error Error, if any
                      * @param [response] Zone
                      */
                     type GetZoneCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Zone) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listZoneActions}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listZoneActions}.
                      * @param error Error, if any
                      * @param [response] ListActionsResponse
                      */
                     type ListZoneActionsCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListActionsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createAsset}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createAsset}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateAssetCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateAsset}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateAsset}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateAssetCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteAsset}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteAsset}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type DeleteAssetCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listAssets}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listAssets}.
                      * @param error Error, if any
                      * @param [response] ListAssetsResponse
                      */
                     type ListAssetsCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListAssetsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getAsset}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getAsset}.
                      * @param error Error, if any
                      * @param [response] Asset
                      */
                     type GetAssetCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Asset) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listAssetActions}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listAssetActions}.
                      * @param error Error, if any
                      * @param [response] ListActionsResponse
                      */
                     type ListAssetActionsCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListActionsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createTask}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createTask}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateTaskCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateTask}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateTask}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateTaskCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteTask}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteTask}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type DeleteTaskCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listTasks}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listTasks}.
                      * @param error Error, if any
                      * @param [response] ListTasksResponse
                      */
                     type ListTasksCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListTasksResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getTask}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getTask}.
                      * @param error Error, if any
                      * @param [response] Task
                      */
                     type GetTaskCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Task) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listJobs}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listJobs}.
                      * @param error Error, if any
                      * @param [response] ListJobsResponse
                      */
                     type ListJobsCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListJobsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getJob}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getJob}.
                      * @param error Error, if any
                      * @param [response] Job
                      */
                     type GetJobCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Job) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|cancelJob}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#cancelJob}.
                      * @param error Error, if any
                      * @param [response] Empty
                      */
                     type CancelJobCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|createEnvironment}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#createEnvironment}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateEnvironmentCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|updateEnvironment}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#updateEnvironment}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateEnvironmentCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|deleteEnvironment}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#deleteEnvironment}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type DeleteEnvironmentCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listEnvironments}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listEnvironments}.
                      * @param error Error, if any
                      * @param [response] ListEnvironmentsResponse
                      */
                     type ListEnvironmentsCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.ListEnvironmentsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|getEnvironment}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#getEnvironment}.
                      * @param error Error, if any
                      * @param [response] Environment
                      */
                     type GetEnvironmentCallback = (error: (Error|null), response?: google.cloud.dataplex.v1.Environment) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService|listSessions}.
+                     * Callback as used by {@link google.cloud.dataplex.v1.DataplexService#listSessions}.
                      * @param error Error, if any
                      * @param [response] ListSessionsResponse
                      */
@@ -16910,9 +16910,6 @@ export namespace google {
             /** FieldOptions lazy */
             lazy?: (boolean|null);
 
-            /** FieldOptions unverifiedLazy */
-            unverifiedLazy?: (boolean|null);
-
             /** FieldOptions deprecated */
             deprecated?: (boolean|null);
 
@@ -16949,9 +16946,6 @@ export namespace google {
 
             /** FieldOptions lazy. */
             public lazy: boolean;
-
-            /** FieldOptions unverifiedLazy. */
-            public unverifiedLazy: boolean;
 
             /** FieldOptions deprecated. */
             public deprecated: boolean;
@@ -18754,35 +18748,35 @@ export namespace google {
         namespace Operations {
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|listOperations}.
+             * Callback as used by {@link google.longrunning.Operations#listOperations}.
              * @param error Error, if any
              * @param [response] ListOperationsResponse
              */
             type ListOperationsCallback = (error: (Error|null), response?: google.longrunning.ListOperationsResponse) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|getOperation}.
+             * Callback as used by {@link google.longrunning.Operations#getOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
             type GetOperationCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|deleteOperation}.
+             * Callback as used by {@link google.longrunning.Operations#deleteOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type DeleteOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|cancelOperation}.
+             * Callback as used by {@link google.longrunning.Operations#cancelOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type CancelOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|waitOperation}.
+             * Callback as used by {@link google.longrunning.Operations#waitOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
