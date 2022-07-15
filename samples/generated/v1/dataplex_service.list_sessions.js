@@ -27,7 +27,7 @@ function main(parent) {
    */
   /**
    *  Required. The resource name of the parent environment:
-   *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}
+   *  `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}`.
    */
   // const parent = 'abc123'
   /**
@@ -43,6 +43,17 @@ function main(parent) {
    *  token.
    */
   // const pageToken = 'abc123'
+  /**
+   *  Optional. Filter request. The following `mode` filter is supported to return only the
+   *  sessions belonging to the requester when the mode is USER and return
+   *  sessions of all the users when the mode is ADMIN. When no filter is sent
+   *  default to USER mode.
+   *  NOTE: When the mode is ADMIN, the requester should have
+   *  `dataplex.environments.listAllSessions` permission to list all sessions,
+   *  in absence of the permission, the request fails.
+   *  mode = ADMIN | USER
+   */
+  // const filter = 'abc123'
 
   // Imports the Dataplex library
   const {DataplexServiceClient} = require('@google-cloud/dataplex').v1;

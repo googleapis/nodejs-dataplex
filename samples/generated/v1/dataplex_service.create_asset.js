@@ -27,7 +27,7 @@ function main(parent, assetId, asset) {
    */
   /**
    *  Required. The resource name of the parent zone:
-   *  `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}`
+   *  `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}`.
    */
   // const parent = 'abc123'
   /**

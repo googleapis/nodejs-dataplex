@@ -34,7 +34,7 @@ function main(name) {
    */
   // const name = 'abc123'
   /**
-   *  Optional. The etag associated with the partition if it was previously retrieved.
+   *  Optional. The etag associated with the partition.
    */
   // const etag = 'abc123'
 
