@@ -27,6 +27,10 @@ import {
   LROperation,
   PaginationCallback,
   GaxCall,
+  IamClient,
+  IamProtos,
+  LocationsClient,
+  LocationProtos,
 } from 'google-gax';
 
 import {Transform} from 'stream';
@@ -45,9 +49,9 @@ const version = require('../../../package.json').version;
 /**
  *  Dataplex service provides data lakes as a service. The primary resources
  *  offered by this service are Lakes, Zones and Assets which collectively allow
- *  a data adminstrator to organize, manage, secure and catalog data across their
- *  organization located across cloud projects in a variety of storage systems
- *  including Cloud Storage and BigQuery.
+ *  a data administrator to organize, manage, secure and catalog data across
+ *  their organization located across cloud projects in a variety of storage
+ *  systems including Cloud Storage and BigQuery.
  * @class
  * @memberof v1
  */
@@ -68,6 +72,8 @@ export class DataplexServiceClient {
   };
   warn: (code: string, message: string, warnType?: string) => void;
   innerApiCalls: {[name: string]: Function};
+  iamClient: IamClient;
+  locationsClient: LocationsClient;
   pathTemplates: {[name: string]: gax.PathTemplate};
   operationsClient: gax.OperationsClient;
   dataplexServiceStub?: Promise<{[name: string]: Function}>;
@@ -147,6 +153,9 @@ export class DataplexServiceClient {
     if (servicePath === staticMembers.servicePath) {
       this.auth.defaultScopes = staticMembers.scopes;
     }
+    this.iamClient = new IamClient(this._gaxGrpc, opts);
+
+    this.locationsClient = new LocationsClient(this._gaxGrpc, opts);
 
     // Determine the client header string.
     const clientHeader = [`gax/${this._gaxModule.version}`, `gapic/${version}`];
@@ -307,9 +316,6 @@ export class DataplexServiceClient {
             {
               get: '/v1/{resource=projects/*/locations/*/lakes/*/environments/*}:getIamPolicy',
             },
-            {
-              get: '/v1/{resource=projects/*/locations/*/lakes/*/content/*}:getIamPolicy',
-            },
           ],
         },
         {
@@ -333,10 +339,6 @@ export class DataplexServiceClient {
               post: '/v1/{resource=projects/*/locations/*/lakes/*/environments/*}:setIamPolicy',
               body: '*',
             },
-            {
-              post: '/v1/{resource=projects/*/locations/*/lakes/*/content/*}:setIamPolicy',
-              body: '*',
-            },
           ],
         },
         {
@@ -358,10 +360,6 @@ export class DataplexServiceClient {
             },
             {
               post: '/v1/{resource=projects/*/locations/*/lakes/*/environments/*}:testIamPermissions',
-              body: '*',
-            },
-            {
-              post: '/v1/{resource=projects/*/locations/*/lakes/*/content/*}:testIamPermissions',
               body: '*',
             },
           ],
@@ -983,7 +981,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The resource name of the task:
-   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{tasks_id}`
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{tasks_id}`.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1235,7 +1233,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The resource name of the environment:
-   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}
+   *   `projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}`.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1619,7 +1617,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The resource name of the lake:
-   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -2192,7 +2190,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent zone:
-   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}`
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/zones/{zone_id}`.
    * @param {string} request.assetId
    *   Required. Asset identifier.
    *   This ID will be used to generate names such as table names when publishing
@@ -3052,7 +3050,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent lake:
-   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   *   `projects/{project_id}/locations/{location_id}/lakes/{lake_id}`.
    * @param {string} request.environmentId
    *   Required. Environment identifier.
    *   * Must contain only lowercase letters, numbers and hyphens.
@@ -3346,7 +3344,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The resource name of the environment:
-   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}`
+   *   `projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}`.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -3695,7 +3693,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent lake:
-   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of actions to return. The service may return fewer than this
    *   value. If unspecified, at most 10 actions will be returned. The maximum
@@ -3793,7 +3791,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent lake:
-   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of actions to return. The service may return fewer than this
    *   value. If unspecified, at most 10 actions will be returned. The maximum
@@ -3845,7 +3843,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent lake:
-   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of actions to return. The service may return fewer than this
    *   value. If unspecified, at most 10 actions will be returned. The maximum
@@ -5126,7 +5124,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent lake:
-   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   *   `projects/{project_id}/locations/{location_id}/lakes/{lake_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of environments to return. The service may return fewer than
    *   this value. If unspecified, at most 10 environments will be returned. The
@@ -5234,7 +5232,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent lake:
-   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   *   `projects/{project_id}/locations/{location_id}/lakes/{lake_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of environments to return. The service may return fewer than
    *   this value. If unspecified, at most 10 environments will be returned. The
@@ -5290,7 +5288,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent lake:
-   *   projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   *   `projects/{project_id}/locations/{location_id}/lakes/{lake_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of environments to return. The service may return fewer than
    *   this value. If unspecified, at most 10 environments will be returned. The
@@ -5345,7 +5343,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent environment:
-   *   projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of sessions to return. The service may return fewer than
    *   this value. If unspecified, at most 10 sessions will be returned. The
@@ -5355,6 +5353,16 @@ export class DataplexServiceClient {
    *   retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListSessions` must match the call that provided the page
    *   token.
+   * @param {string} [request.filter]
+   *   Optional. Filter request. The following `mode` filter is supported to return only the
+   *   sessions belonging to the requester when the mode is USER and return
+   *   sessions of all the users when the mode is ADMIN. When no filter is sent
+   *   default to USER mode.
+   *   NOTE: When the mode is ADMIN, the requester should have
+   *   `dataplex.environments.listAllSessions` permission to list all sessions,
+   *   in absence of the permission, the request fails.
+   *
+   *   mode = ADMIN | USER
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -5443,7 +5451,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent environment:
-   *   projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of sessions to return. The service may return fewer than
    *   this value. If unspecified, at most 10 sessions will be returned. The
@@ -5453,6 +5461,16 @@ export class DataplexServiceClient {
    *   retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListSessions` must match the call that provided the page
    *   token.
+   * @param {string} [request.filter]
+   *   Optional. Filter request. The following `mode` filter is supported to return only the
+   *   sessions belonging to the requester when the mode is USER and return
+   *   sessions of all the users when the mode is ADMIN. When no filter is sent
+   *   default to USER mode.
+   *   NOTE: When the mode is ADMIN, the requester should have
+   *   `dataplex.environments.listAllSessions` permission to list all sessions,
+   *   in absence of the permission, the request fails.
+   *
+   *   mode = ADMIN | USER
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Stream}
@@ -5495,7 +5513,7 @@ export class DataplexServiceClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The resource name of the parent environment:
-   *   projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}
+   *   `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}`.
    * @param {number} [request.pageSize]
    *   Optional. Maximum number of sessions to return. The service may return fewer than
    *   this value. If unspecified, at most 10 sessions will be returned. The
@@ -5505,6 +5523,16 @@ export class DataplexServiceClient {
    *   retrieve the subsequent page. When paginating, all other parameters
    *   provided to `ListSessions` must match the call that provided the page
    *   token.
+   * @param {string} [request.filter]
+   *   Optional. Filter request. The following `mode` filter is supported to return only the
+   *   sessions belonging to the requester when the mode is USER and return
+   *   sessions of all the users when the mode is ADMIN. When no filter is sent
+   *   default to USER mode.
+   *   NOTE: When the mode is ADMIN, the requester should have
+   *   `dataplex.environments.listAllSessions` permission to list all sessions,
+   *   in absence of the permission, the request fails.
+   *
+   *   mode = ADMIN | USER
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Object}
@@ -5539,6 +5567,403 @@ export class DataplexServiceClient {
       callSettings
     ) as AsyncIterable<protos.google.cloud.dataplex.v1.ISession>;
   }
+  /**
+   * Gets the access control policy for a resource. Returns an empty policy
+   * if the resource exists and does not have a policy set.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.resource
+   *   REQUIRED: The resource for which the policy is being requested.
+   *   See the operation documentation for the appropriate value for this field.
+   * @param {Object} [request.options]
+   *   OPTIONAL: A `GetPolicyOptions` object for specifying options to
+   *   `GetIamPolicy`. This field is only used by Cloud IAM.
+   *
+   *   This object should have the same structure as [GetPolicyOptions]{@link google.iam.v1.GetPolicyOptions}
+   * @param {Object} [options]
+   *   Optional parameters. You can override the default settings for this call, e.g, timeout,
+   *   retries, paginations, etc. See [gax.CallOptions]{@link https://googleapis.github.io/gax-nodejs/interfaces/CallOptions.html} for the details.
+   * @param {function(?Error, ?Object)} [callback]
+   *   The function which will be called with the result of the API call.
+   *
+   *   The second parameter to the callback is an object representing [Policy]{@link google.iam.v1.Policy}.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Policy]{@link google.iam.v1.Policy}.
+   *   The promise has a method named "cancel" which cancels the ongoing API call.
+   */
+  getIamPolicy(
+    request: IamProtos.google.iam.v1.GetIamPolicyRequest,
+    options?:
+      | gax.CallOptions
+      | Callback<
+          IamProtos.google.iam.v1.Policy,
+          IamProtos.google.iam.v1.GetIamPolicyRequest | null | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      IamProtos.google.iam.v1.Policy,
+      IamProtos.google.iam.v1.GetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<IamProtos.google.iam.v1.Policy> {
+    return this.iamClient.getIamPolicy(request, options, callback);
+  }
+
+  /**
+   * Returns permissions that a caller has on the specified resource. If the
+   * resource does not exist, this will return an empty set of
+   * permissions, not a NOT_FOUND error.
+   *
+   * Note: This operation is designed to be used for building
+   * permission-aware UIs and command-line tools, not for authorization
+   * checking. This operation may "fail open" without warning.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.resource
+   *   REQUIRED: The resource for which the policy detail is being requested.
+   *   See the operation documentation for the appropriate value for this field.
+   * @param {string[]} request.permissions
+   *   The set of permissions to check for the `resource`. Permissions with
+   *   wildcards (such as '*' or 'storage.*') are not allowed. For more
+   *   information see
+   *   [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+   * @param {Object} [options]
+   *   Optional parameters. You can override the default settings for this call, e.g, timeout,
+   *   retries, paginations, etc. See [gax.CallOptions]{@link https://googleapis.github.io/gax-nodejs/interfaces/CallOptions.html} for the details.
+   * @param {function(?Error, ?Object)} [callback]
+   *   The function which will be called with the result of the API call.
+   *
+   *   The second parameter to the callback is an object representing [TestIamPermissionsResponse]{@link google.iam.v1.TestIamPermissionsResponse}.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [TestIamPermissionsResponse]{@link google.iam.v1.TestIamPermissionsResponse}.
+   *   The promise has a method named "cancel" which cancels the ongoing API call.
+   */
+  setIamPolicy(
+    request: IamProtos.google.iam.v1.SetIamPolicyRequest,
+    options?:
+      | gax.CallOptions
+      | Callback<
+          IamProtos.google.iam.v1.Policy,
+          IamProtos.google.iam.v1.SetIamPolicyRequest | null | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      IamProtos.google.iam.v1.Policy,
+      IamProtos.google.iam.v1.SetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<IamProtos.google.iam.v1.Policy> {
+    return this.iamClient.setIamPolicy(request, options, callback);
+  }
+
+  /**
+   * Returns permissions that a caller has on the specified resource. If the
+   * resource does not exist, this will return an empty set of
+   * permissions, not a NOT_FOUND error.
+   *
+   * Note: This operation is designed to be used for building
+   * permission-aware UIs and command-line tools, not for authorization
+   * checking. This operation may "fail open" without warning.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.resource
+   *   REQUIRED: The resource for which the policy detail is being requested.
+   *   See the operation documentation for the appropriate value for this field.
+   * @param {string[]} request.permissions
+   *   The set of permissions to check for the `resource`. Permissions with
+   *   wildcards (such as '*' or 'storage.*') are not allowed. For more
+   *   information see
+   *   [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+   * @param {Object} [options]
+   *   Optional parameters. You can override the default settings for this call, e.g, timeout,
+   *   retries, paginations, etc. See [gax.CallOptions]{@link https://googleapis.github.io/gax-nodejs/interfaces/CallOptions.html} for the details.
+   * @param {function(?Error, ?Object)} [callback]
+   *   The function which will be called with the result of the API call.
+   *
+   *   The second parameter to the callback is an object representing [TestIamPermissionsResponse]{@link google.iam.v1.TestIamPermissionsResponse}.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [TestIamPermissionsResponse]{@link google.iam.v1.TestIamPermissionsResponse}.
+   *   The promise has a method named "cancel" which cancels the ongoing API call.
+   *
+   */
+  testIamPermissions(
+    request: IamProtos.google.iam.v1.TestIamPermissionsRequest,
+    options?:
+      | gax.CallOptions
+      | Callback<
+          IamProtos.google.iam.v1.TestIamPermissionsResponse,
+          IamProtos.google.iam.v1.TestIamPermissionsRequest | null | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      IamProtos.google.iam.v1.TestIamPermissionsResponse,
+      IamProtos.google.iam.v1.TestIamPermissionsRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<IamProtos.google.iam.v1.TestIamPermissionsResponse> {
+    return this.iamClient.testIamPermissions(request, options, callback);
+  }
+
+  /**
+   * Gets information about a location.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   Resource name for the location.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Location]{@link google.cloud.location.Location}.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#regular-methods)
+   *   for more details and examples.
+   * @example
+   * ```
+   * const [response] = await client.getLocation(request);
+   * ```
+   */
+  getLocation(
+    request: LocationProtos.google.cloud.location.IGetLocationRequest,
+    options?:
+      | gax.CallOptions
+      | Callback<
+          LocationProtos.google.cloud.location.ILocation,
+          | LocationProtos.google.cloud.location.IGetLocationRequest
+          | null
+          | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      LocationProtos.google.cloud.location.ILocation,
+      | LocationProtos.google.cloud.location.IGetLocationRequest
+      | null
+      | undefined,
+      {} | null | undefined
+    >
+  ): Promise<LocationProtos.google.cloud.location.ILocation> {
+    return this.locationsClient.getLocation(request, options, callback);
+  }
+
+  /**
+   * Lists information about the supported locations for this service. Returns an iterable object.
+   *
+   * `for`-`await`-`of` syntax is used with the iterable to get response elements on-demand.
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {string} request.name
+   *   The resource that owns the locations collection, if applicable.
+   * @param {string} request.filter
+   *   The standard list filter.
+   * @param {number} request.pageSize
+   *   The standard list page size.
+   * @param {string} request.pageToken
+   *   The standard list page token.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Object}
+   *   An iterable Object that allows [async iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols).
+   *   When you iterate the returned iterable, each element will be an object representing
+   *   [Location]{@link google.cloud.location.Location}. The API will be called under the hood as needed, once per the page,
+   *   so you can stop the iteration when you don't need more results.
+   *   Please see the
+   *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
+   *   for more details and examples.
+   * @example
+   * ```
+   * const iterable = client.listLocationsAsync(request);
+   * for await (const response of iterable) {
+   *   // process response
+   * }
+   * ```
+   */
+  listLocationsAsync(
+    request: LocationProtos.google.cloud.location.IListLocationsRequest,
+    options?: CallOptions
+  ): AsyncIterable<LocationProtos.google.cloud.location.ILocation> {
+    return this.locationsClient.listLocationsAsync(request, options);
+  }
+
+  /**
+   * Gets the latest state of a long-running operation.  Clients can use this
+   * method to poll the operation result at intervals as recommended by the API
+   * service.
+   *
+   * @param {Object} request - The request object that will be sent.
+   * @param {string} request.name - The name of the operation resource.
+   * @param {Object=} options
+   *   Optional parameters. You can override the default settings for this call,
+   *   e.g, timeout, retries, paginations, etc. See [gax.CallOptions]{@link
+   *   https://googleapis.github.io/gax-nodejs/global.html#CallOptions} for the
+   *   details.
+   * @param {function(?Error, ?Object)=} callback
+   *   The function which will be called with the result of the API call.
+   *
+   *   The second parameter to the callback is an object representing
+   * [google.longrunning.Operation]{@link
+   * external:"google.longrunning.Operation"}.
+   * @return {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing
+   * [google.longrunning.Operation]{@link
+   * external:"google.longrunning.Operation"}. The promise has a method named
+   * "cancel" which cancels the ongoing API call.
+   *
+   * @example
+   * ```
+   * const client = longrunning.operationsClient();
+   * const name = '';
+   * const [response] = await client.getOperation({name});
+   * // doThingsWith(response)
+   * ```
+   */
+  getOperation(
+    request: protos.google.longrunning.GetOperationRequest,
+    options?:
+      | gax.CallOptions
+      | Callback<
+          protos.google.longrunning.Operation,
+          protos.google.longrunning.GetOperationRequest,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.longrunning.Operation,
+      protos.google.longrunning.GetOperationRequest,
+      {} | null | undefined
+    >
+  ): Promise<[protos.google.longrunning.Operation]> {
+    return this.operationsClient.getOperation(request, options, callback);
+  }
+  /**
+   * Lists operations that match the specified filter in the request. If the
+   * server doesn't support this method, it returns `UNIMPLEMENTED`. Returns an iterable object.
+   *
+   * For-await-of syntax is used with the iterable to recursively get response element on-demand.
+   *
+   * @param {Object} request - The request object that will be sent.
+   * @param {string} request.name - The name of the operation collection.
+   * @param {string} request.filter - The standard list filter.
+   * @param {number=} request.pageSize -
+   *   The maximum number of resources contained in the underlying API
+   *   response. If page streaming is performed per-resource, this
+   *   parameter does not affect the return value. If page streaming is
+   *   performed per-page, this determines the maximum number of
+   *   resources in a page.
+   * @param {Object=} options
+   *   Optional parameters. You can override the default settings for this call,
+   *   e.g, timeout, retries, paginations, etc. See [gax.CallOptions]{@link
+   *   https://googleapis.github.io/gax-nodejs/global.html#CallOptions} for the
+   *   details.
+   * @returns {Object}
+   *   An iterable Object that conforms to @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols.
+   *
+   * @example
+   * ```
+   * const client = longrunning.operationsClient();
+   * for await (const response of client.listOperationsAsync(request));
+   * // doThingsWith(response)
+   * ```
+   */
+  listOperationsAsync(
+    request: protos.google.longrunning.ListOperationsRequest,
+    options?: gax.CallOptions
+  ): AsyncIterable<protos.google.longrunning.ListOperationsResponse> {
+    return this.operationsClient.listOperationsAsync(request, options);
+  }
+  /**
+   * Starts asynchronous cancellation on a long-running operation.  The server
+   * makes a best effort to cancel the operation, but success is not
+   * guaranteed.  If the server doesn't support this method, it returns
+   * `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+   * {@link Operations.GetOperation} or
+   * other methods to check whether the cancellation succeeded or whether the
+   * operation completed despite cancellation. On successful cancellation,
+   * the operation is not deleted; instead, it becomes an operation with
+   * an {@link Operation.error} value with a {@link google.rpc.Status.code} of
+   * 1, corresponding to `Code.CANCELLED`.
+   *
+   * @param {Object} request - The request object that will be sent.
+   * @param {string} request.name - The name of the operation resource to be cancelled.
+   * @param {Object=} options
+   *   Optional parameters. You can override the default settings for this call,
+   * e.g, timeout, retries, paginations, etc. See [gax.CallOptions]{@link
+   * https://googleapis.github.io/gax-nodejs/global.html#CallOptions} for the
+   * details.
+   * @param {function(?Error)=} callback
+   *   The function which will be called with the result of the API call.
+   * @return {Promise} - The promise which resolves when API call finishes.
+   *   The promise has a method named "cancel" which cancels the ongoing API
+   * call.
+   *
+   * @example
+   * ```
+   * const client = longrunning.operationsClient();
+   * await client.cancelOperation({name: ''});
+   * ```
+   */
+  cancelOperation(
+    request: protos.google.longrunning.CancelOperationRequest,
+    options?:
+      | gax.CallOptions
+      | Callback<
+          protos.google.protobuf.Empty,
+          protos.google.longrunning.CancelOperationRequest,
+          {} | undefined | null
+        >,
+    callback?: Callback<
+      protos.google.longrunning.CancelOperationRequest,
+      protos.google.protobuf.Empty,
+      {} | undefined | null
+    >
+  ): Promise<protos.google.protobuf.Empty> {
+    return this.operationsClient.cancelOperation(request, options, callback);
+  }
+
+  /**
+   * Deletes a long-running operation. This method indicates that the client is
+   * no longer interested in the operation result. It does not cancel the
+   * operation. If the server doesn't support this method, it returns
+   * `google.rpc.Code.UNIMPLEMENTED`.
+   *
+   * @param {Object} request - The request object that will be sent.
+   * @param {string} request.name - The name of the operation resource to be deleted.
+   * @param {Object=} options
+   *   Optional parameters. You can override the default settings for this call,
+   * e.g, timeout, retries, paginations, etc. See [gax.CallOptions]{@link
+   * https://googleapis.github.io/gax-nodejs/global.html#CallOptions} for the
+   * details.
+   * @param {function(?Error)=} callback
+   *   The function which will be called with the result of the API call.
+   * @return {Promise} - The promise which resolves when API call finishes.
+   *   The promise has a method named "cancel" which cancels the ongoing API
+   * call.
+   *
+   * @example
+   * ```
+   * const client = longrunning.operationsClient();
+   * await client.deleteOperation({name: ''});
+   * ```
+   */
+  deleteOperation(
+    request: protos.google.longrunning.DeleteOperationRequest,
+    options?:
+      | gax.CallOptions
+      | Callback<
+          protos.google.protobuf.Empty,
+          protos.google.longrunning.DeleteOperationRequest,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.protobuf.Empty,
+      protos.google.longrunning.DeleteOperationRequest,
+      {} | null | undefined
+    >
+  ): Promise<protos.google.protobuf.Empty> {
+    return this.operationsClient.deleteOperation(request, options, callback);
+  }
+
   // --------------------
   // -- Path templates --
   // --------------------
@@ -6629,6 +7054,8 @@ export class DataplexServiceClient {
       return this.dataplexServiceStub.then(stub => {
         this._terminated = true;
         stub.close();
+        this.iamClient.close();
+        this.locationsClient.close();
         this.operationsClient.close();
       });
     }

@@ -27,7 +27,7 @@ function main(parent, environmentId, environment) {
    */
   /**
    *  Required. The resource name of the parent lake:
-   *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}
+   *  `projects/{project_id}/locations/{location_id}/lakes/{lake_id}`.
    */
   // const parent = 'abc123'
   /**

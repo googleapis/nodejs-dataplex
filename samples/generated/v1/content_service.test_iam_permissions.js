@@ -20,36 +20,44 @@
 
 'use strict';
 
-function main(name) {
-  // [START dataplex_v1_generated_DataplexService_GetEnvironment_async]
+function main(resource, permissions) {
+  // [START dataplex_v1_generated_ContentService_TestIamPermissions_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the environment:
-   *  `projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}`.
+   *  REQUIRED: The resource for which the policy detail is being requested.
+   *  See the operation documentation for the appropriate value for this field.
    */
-  // const name = 'abc123'
+  // const resource = 'abc123'
+  /**
+   *  The set of permissions to check for the `resource`. Permissions with
+   *  wildcards (such as '*' or 'storage.*') are not allowed. For more
+   *  information see
+   *  IAM Overview (https://cloud.google.com/iam/docs/overview#permissions).
+   */
+  // const permissions = 'abc123'
 
   // Imports the Dataplex library
-  const {DataplexServiceClient} = require('@google-cloud/dataplex').v1;
+  const {ContentServiceClient} = require('@google-cloud/dataplex').v1;
 
   // Instantiates a client
-  const dataplexClient = new DataplexServiceClient();
+  const dataplexClient = new ContentServiceClient();
 
-  async function callGetEnvironment() {
+  async function callTestIamPermissions() {
     // Construct request
     const request = {
-      name,
+      resource,
+      permissions,
     };
 
     // Run request
-    const response = await dataplexClient.getEnvironment(request);
+    const response = await dataplexClient.testIamPermissions(request);
     console.log(response);
   }
 
-  callGetEnvironment();
-  // [END dataplex_v1_generated_DataplexService_GetEnvironment_async]
+  callTestIamPermissions();
+  // [END dataplex_v1_generated_ContentService_TestIamPermissions_async]
 }
 
 process.on('unhandledRejection', err => {

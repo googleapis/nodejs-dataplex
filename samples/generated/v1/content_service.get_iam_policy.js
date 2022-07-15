@@ -20,36 +20,41 @@
 
 'use strict';
 
-function main(name) {
-  // [START dataplex_v1_generated_DataplexService_GetEnvironment_async]
+function main(resource) {
+  // [START dataplex_v1_generated_ContentService_GetIamPolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the environment:
-   *  `projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environments/{environment_id}`.
+   *  REQUIRED: The resource for which the policy is being requested.
+   *  See the operation documentation for the appropriate value for this field.
    */
-  // const name = 'abc123'
+  // const resource = 'abc123'
+  /**
+   *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+   *  `GetIamPolicy`.
+   */
+  // const options = {}
 
   // Imports the Dataplex library
-  const {DataplexServiceClient} = require('@google-cloud/dataplex').v1;
+  const {ContentServiceClient} = require('@google-cloud/dataplex').v1;
 
   // Instantiates a client
-  const dataplexClient = new DataplexServiceClient();
+  const dataplexClient = new ContentServiceClient();
 
-  async function callGetEnvironment() {
+  async function callGetIamPolicy() {
     // Construct request
     const request = {
-      name,
+      resource,
     };
 
     // Run request
-    const response = await dataplexClient.getEnvironment(request);
+    const response = await dataplexClient.getIamPolicy(request);
     console.log(response);
   }
 
-  callGetEnvironment();
-  // [END dataplex_v1_generated_DataplexService_GetEnvironment_async]
+  callGetIamPolicy();
+  // [END dataplex_v1_generated_ContentService_GetIamPolicy_async]
 }
 
 process.on('unhandledRejection', err => {

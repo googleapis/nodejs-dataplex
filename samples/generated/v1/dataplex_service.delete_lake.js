@@ -27,7 +27,7 @@ function main(name) {
    */
   /**
    *  Required. The resource name of the lake:
-   *  `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`
+   *  `projects/{project_number}/locations/{location_id}/lakes/{lake_id}`.
    */
   // const name = 'abc123'
 

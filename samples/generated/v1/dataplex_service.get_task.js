@@ -27,7 +27,7 @@ function main(name) {
    */
   /**
    *  Required. The resource name of the task:
-   *  `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{tasks_id}`
+   *  `projects/{project_number}/locations/{location_id}/lakes/{lake_id}/tasks/{tasks_id}`.
    */
   // const name = 'abc123'
 
