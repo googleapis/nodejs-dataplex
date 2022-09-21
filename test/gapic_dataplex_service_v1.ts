@@ -275,7 +275,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetLakeRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetLakeRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -303,7 +306,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetLakeRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetLakeRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -347,7 +353,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetLakeRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetLakeRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -372,7 +381,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetLakeRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetLakeRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -390,7 +402,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetZoneRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetZoneRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -418,7 +433,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetZoneRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetZoneRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -462,7 +480,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetZoneRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetZoneRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -487,7 +508,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetZoneRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetZoneRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -505,7 +529,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetAssetRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetAssetRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -533,7 +560,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetAssetRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetAssetRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -577,7 +607,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetAssetRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetAssetRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -602,7 +635,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetAssetRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetAssetRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -620,7 +656,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetTaskRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetTaskRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -648,7 +687,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetTaskRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetTaskRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -692,7 +734,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetTaskRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetTaskRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -717,7 +762,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetTaskRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetTaskRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -735,7 +783,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetJobRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetJobRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetJobRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -763,7 +814,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetJobRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetJobRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetJobRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -807,7 +861,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetJobRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetJobRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetJobRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -832,7 +889,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetJobRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetJobRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetJobRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -850,7 +910,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CancelJobRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CancelJobRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CancelJobRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -878,7 +941,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CancelJobRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CancelJobRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CancelJobRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -922,7 +988,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CancelJobRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CancelJobRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CancelJobRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -947,7 +1016,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CancelJobRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CancelJobRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CancelJobRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -965,9 +1037,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetEnvironmentRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetEnvironmentRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -995,9 +1068,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetEnvironmentRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetEnvironmentRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1041,9 +1115,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetEnvironmentRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetEnvironmentRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1071,9 +1146,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.GetEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetEnvironmentRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.GetEnvironmentRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -1091,9 +1167,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateLakeRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateLakeRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1122,9 +1199,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateLakeRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateLakeRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1175,9 +1253,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateLakeRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateLakeRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1205,9 +1284,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateLakeRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateLakeRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1278,10 +1358,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateLakeRequest()
       );
       request.lake ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateLakeRequest', [
-        'lake',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateLakeRequest',
+        ['lake', 'name']
+      );
       request.lake.name = defaultValue1;
       const expectedHeaderRequestParams = `lake.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1311,10 +1391,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateLakeRequest()
       );
       request.lake ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateLakeRequest', [
-        'lake',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateLakeRequest',
+        ['lake', 'name']
+      );
       request.lake.name = defaultValue1;
       const expectedHeaderRequestParams = `lake.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1366,10 +1446,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateLakeRequest()
       );
       request.lake ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateLakeRequest', [
-        'lake',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateLakeRequest',
+        ['lake', 'name']
+      );
       request.lake.name = defaultValue1;
       const expectedHeaderRequestParams = `lake.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1398,10 +1478,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateLakeRequest()
       );
       request.lake ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateLakeRequest', [
-        'lake',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateLakeRequest',
+        ['lake', 'name']
+      );
       request.lake.name = defaultValue1;
       const expectedHeaderRequestParams = `lake.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1471,7 +1551,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteLakeRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteLakeRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1500,7 +1583,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteLakeRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteLakeRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1551,7 +1637,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteLakeRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteLakeRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1579,7 +1668,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteLakeRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteLakeRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteLakeRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1649,9 +1741,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateZoneRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateZoneRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1680,9 +1773,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateZoneRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateZoneRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1733,9 +1827,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateZoneRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateZoneRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1763,9 +1858,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateZoneRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateZoneRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1836,10 +1932,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateZoneRequest()
       );
       request.zone ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateZoneRequest', [
-        'zone',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateZoneRequest',
+        ['zone', 'name']
+      );
       request.zone.name = defaultValue1;
       const expectedHeaderRequestParams = `zone.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1869,10 +1965,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateZoneRequest()
       );
       request.zone ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateZoneRequest', [
-        'zone',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateZoneRequest',
+        ['zone', 'name']
+      );
       request.zone.name = defaultValue1;
       const expectedHeaderRequestParams = `zone.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1924,10 +2020,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateZoneRequest()
       );
       request.zone ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateZoneRequest', [
-        'zone',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateZoneRequest',
+        ['zone', 'name']
+      );
       request.zone.name = defaultValue1;
       const expectedHeaderRequestParams = `zone.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1956,10 +2052,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateZoneRequest()
       );
       request.zone ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateZoneRequest', [
-        'zone',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateZoneRequest',
+        ['zone', 'name']
+      );
       request.zone.name = defaultValue1;
       const expectedHeaderRequestParams = `zone.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2029,7 +2125,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteZoneRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteZoneRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2058,7 +2157,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteZoneRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteZoneRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2109,7 +2211,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteZoneRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteZoneRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2137,7 +2242,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteZoneRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteZoneRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteZoneRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2207,9 +2315,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateAssetRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateAssetRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2238,9 +2347,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateAssetRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateAssetRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2291,9 +2401,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateAssetRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateAssetRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2321,9 +2432,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateAssetRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateAssetRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2394,10 +2506,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateAssetRequest()
       );
       request.asset ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateAssetRequest', [
-        'asset',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateAssetRequest',
+        ['asset', 'name']
+      );
       request.asset.name = defaultValue1;
       const expectedHeaderRequestParams = `asset.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2427,10 +2539,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateAssetRequest()
       );
       request.asset ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateAssetRequest', [
-        'asset',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateAssetRequest',
+        ['asset', 'name']
+      );
       request.asset.name = defaultValue1;
       const expectedHeaderRequestParams = `asset.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2482,10 +2594,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateAssetRequest()
       );
       request.asset ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateAssetRequest', [
-        'asset',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateAssetRequest',
+        ['asset', 'name']
+      );
       request.asset.name = defaultValue1;
       const expectedHeaderRequestParams = `asset.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2514,10 +2626,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateAssetRequest()
       );
       request.asset ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateAssetRequest', [
-        'asset',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateAssetRequest',
+        ['asset', 'name']
+      );
       request.asset.name = defaultValue1;
       const expectedHeaderRequestParams = `asset.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2587,7 +2699,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteAssetRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteAssetRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2616,7 +2731,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteAssetRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteAssetRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2667,7 +2785,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteAssetRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteAssetRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2695,7 +2816,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteAssetRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteAssetRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteAssetRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2765,9 +2889,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateTaskRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateTaskRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2796,9 +2921,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateTaskRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateTaskRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2849,9 +2975,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateTaskRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateTaskRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2879,9 +3006,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateTaskRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateTaskRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2952,10 +3080,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateTaskRequest()
       );
       request.task ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateTaskRequest', [
-        'task',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateTaskRequest',
+        ['task', 'name']
+      );
       request.task.name = defaultValue1;
       const expectedHeaderRequestParams = `task.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -2985,10 +3113,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateTaskRequest()
       );
       request.task ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateTaskRequest', [
-        'task',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateTaskRequest',
+        ['task', 'name']
+      );
       request.task.name = defaultValue1;
       const expectedHeaderRequestParams = `task.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3040,10 +3168,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateTaskRequest()
       );
       request.task ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateTaskRequest', [
-        'task',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateTaskRequest',
+        ['task', 'name']
+      );
       request.task.name = defaultValue1;
       const expectedHeaderRequestParams = `task.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3072,10 +3200,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateTaskRequest()
       );
       request.task ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateTaskRequest', [
-        'task',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateTaskRequest',
+        ['task', 'name']
+      );
       request.task.name = defaultValue1;
       const expectedHeaderRequestParams = `task.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3145,7 +3273,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteTaskRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteTaskRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3174,7 +3305,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteTaskRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteTaskRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3225,7 +3359,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteTaskRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteTaskRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3253,7 +3390,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteTaskRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteTaskRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteTaskRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3323,9 +3463,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateEnvironmentRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateEnvironmentRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3355,9 +3496,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateEnvironmentRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateEnvironmentRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3408,9 +3550,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateEnvironmentRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateEnvironmentRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3438,9 +3581,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.CreateEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateEnvironmentRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.CreateEnvironmentRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3514,10 +3658,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateEnvironmentRequest()
       );
       request.environment ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateEnvironmentRequest', [
-        'environment',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateEnvironmentRequest',
+        ['environment', 'name']
+      );
       request.environment.name = defaultValue1;
       const expectedHeaderRequestParams = `environment.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3548,10 +3692,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateEnvironmentRequest()
       );
       request.environment ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateEnvironmentRequest', [
-        'environment',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateEnvironmentRequest',
+        ['environment', 'name']
+      );
       request.environment.name = defaultValue1;
       const expectedHeaderRequestParams = `environment.name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3603,10 +3747,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateEnvironmentRequest()
       );
       request.environment ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateEnvironmentRequest', [
-        'environment',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateEnvironmentRequest',
+        ['environment', 'name']
+      );
       request.environment.name = defaultValue1;
       const expectedHeaderRequestParams = `environment.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3635,10 +3779,10 @@ describe('v1.DataplexServiceClient', () => {
         new protos.google.cloud.dataplex.v1.UpdateEnvironmentRequest()
       );
       request.environment ??= {};
-      const defaultValue1 = getTypeDefaultValue('UpdateEnvironmentRequest', [
-        'environment',
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.UpdateEnvironmentRequest',
+        ['environment', 'name']
+      );
       request.environment.name = defaultValue1;
       const expectedHeaderRequestParams = `environment.name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3711,9 +3855,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteEnvironmentRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteEnvironmentRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3743,9 +3888,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteEnvironmentRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteEnvironmentRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -3796,9 +3942,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteEnvironmentRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteEnvironmentRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3826,9 +3973,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.DeleteEnvironmentRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteEnvironmentRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.DeleteEnvironmentRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -3901,7 +4049,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -3931,7 +4082,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -3977,7 +4131,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4002,7 +4159,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4050,7 +4210,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4095,7 +4258,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4134,7 +4300,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4174,9 +4343,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakeActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakeActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakeActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4206,9 +4376,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakeActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakeActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakeActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4254,9 +4425,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakeActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakeActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakeActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4284,9 +4456,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakeActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakeActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakeActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4337,9 +4510,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakeActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakeActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakeActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4385,9 +4559,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakeActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakeActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakeActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4427,9 +4602,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListLakeActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListLakeActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListLakeActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4468,7 +4644,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZonesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZonesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZonesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4498,7 +4677,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZonesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZonesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZonesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4544,7 +4726,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZonesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZonesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZonesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4569,7 +4754,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZonesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZonesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZonesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4617,7 +4805,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZonesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZonesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZonesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4662,7 +4853,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZonesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZonesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZonesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4701,7 +4895,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZonesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZonesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZonesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4741,9 +4938,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZoneActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZoneActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZoneActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4773,9 +4971,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZoneActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZoneActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZoneActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4821,9 +5020,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZoneActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZoneActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZoneActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4851,9 +5051,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZoneActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZoneActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZoneActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4904,9 +5105,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZoneActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZoneActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZoneActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -4952,9 +5154,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZoneActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZoneActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZoneActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -4994,9 +5197,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListZoneActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListZoneActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListZoneActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5035,9 +5239,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5067,9 +5272,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5115,9 +5321,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5145,9 +5352,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5195,9 +5403,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5242,9 +5451,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5284,9 +5494,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5327,9 +5538,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5359,9 +5571,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5407,9 +5620,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5437,9 +5651,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5490,9 +5705,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5538,9 +5754,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5580,9 +5797,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListAssetActionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListAssetActionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListAssetActionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5621,7 +5839,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListTasksRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListTasksRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListTasksRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5651,7 +5872,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListTasksRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListTasksRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListTasksRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5697,7 +5921,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListTasksRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListTasksRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListTasksRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5722,7 +5949,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListTasksRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListTasksRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListTasksRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5770,7 +6000,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListTasksRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListTasksRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListTasksRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5815,7 +6048,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListTasksRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListTasksRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListTasksRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5854,7 +6090,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListTasksRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListTasksRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListTasksRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5894,7 +6133,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListJobsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListJobsRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListJobsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5924,7 +6166,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListJobsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListJobsRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListJobsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -5970,7 +6215,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListJobsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListJobsRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListJobsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -5995,7 +6243,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListJobsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListJobsRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListJobsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6043,7 +6294,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListJobsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListJobsRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListJobsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -6088,7 +6342,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListJobsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListJobsRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListJobsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6127,7 +6384,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListJobsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListJobsRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListJobsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -6167,9 +6427,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListEnvironmentsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListEnvironmentsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListEnvironmentsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6205,9 +6466,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListEnvironmentsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListEnvironmentsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListEnvironmentsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6259,9 +6521,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListEnvironmentsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListEnvironmentsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListEnvironmentsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -6289,9 +6552,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListEnvironmentsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListEnvironmentsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListEnvironmentsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6348,9 +6612,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListEnvironmentsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListEnvironmentsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListEnvironmentsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -6396,9 +6661,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListEnvironmentsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListEnvironmentsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListEnvironmentsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6444,9 +6710,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListEnvironmentsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListEnvironmentsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListEnvironmentsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -6485,9 +6752,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListSessionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListSessionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListSessionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6517,9 +6785,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListSessionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListSessionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListSessionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6565,9 +6834,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListSessionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListSessionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListSessionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -6595,9 +6865,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListSessionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListSessionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListSessionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6648,9 +6919,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListSessionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListSessionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListSessionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -6698,9 +6970,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListSessionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListSessionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListSessionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -6740,9 +7013,10 @@ describe('v1.DataplexServiceClient', () => {
       const request = generateSampleMessage(
         new protos.google.cloud.dataplex.v1.ListSessionsRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListSessionsRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.google.cloud.dataplex.v1.ListSessionsRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
