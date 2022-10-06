@@ -15828,7 +15828,7 @@
                          * @property {google.cloud.dataplex.v1.SessionEvent.EventType|null} [type] SessionEvent type
                          * @property {google.cloud.dataplex.v1.SessionEvent.IQueryDetail|null} [query] SessionEvent query
                          * @property {boolean|null} [eventSucceeded] SessionEvent eventSucceeded
-                         * @property {boolean|null} [warmPoolEnabled] SessionEvent warmPoolEnabled
+                         * @property {boolean|null} [fastStartupEnabled] SessionEvent fastStartupEnabled
                          * @property {google.protobuf.IDuration|null} [unassignedDuration] SessionEvent unassignedDuration
                          */
     
@@ -15896,12 +15896,12 @@
                         SessionEvent.prototype.eventSucceeded = false;
     
                         /**
-                         * SessionEvent warmPoolEnabled.
-                         * @member {boolean} warmPoolEnabled
+                         * SessionEvent fastStartupEnabled.
+                         * @member {boolean} fastStartupEnabled
                          * @memberof google.cloud.dataplex.v1.SessionEvent
                          * @instance
                          */
-                        SessionEvent.prototype.warmPoolEnabled = false;
+                        SessionEvent.prototype.fastStartupEnabled = false;
     
                         /**
                          * SessionEvent unassignedDuration.
@@ -15961,8 +15961,8 @@
                                 $root.google.cloud.dataplex.v1.SessionEvent.QueryDetail.encode(message.query, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                             if (message.eventSucceeded != null && Object.hasOwnProperty.call(message, "eventSucceeded"))
                                 writer.uint32(/* id 6, wireType 0 =*/48).bool(message.eventSucceeded);
-                            if (message.warmPoolEnabled != null && Object.hasOwnProperty.call(message, "warmPoolEnabled"))
-                                writer.uint32(/* id 7, wireType 0 =*/56).bool(message.warmPoolEnabled);
+                            if (message.fastStartupEnabled != null && Object.hasOwnProperty.call(message, "fastStartupEnabled"))
+                                writer.uint32(/* id 7, wireType 0 =*/56).bool(message.fastStartupEnabled);
                             if (message.unassignedDuration != null && Object.hasOwnProperty.call(message, "unassignedDuration"))
                                 $root.google.protobuf.Duration.encode(message.unassignedDuration, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                             return writer;
@@ -16024,7 +16024,7 @@
                                         break;
                                     }
                                 case 7: {
-                                        message.warmPoolEnabled = reader.bool();
+                                        message.fastStartupEnabled = reader.bool();
                                         break;
                                     }
                                 case 8: {
@@ -16098,9 +16098,9 @@
                             if (message.eventSucceeded != null && message.hasOwnProperty("eventSucceeded"))
                                 if (typeof message.eventSucceeded !== "boolean")
                                     return "eventSucceeded: boolean expected";
-                            if (message.warmPoolEnabled != null && message.hasOwnProperty("warmPoolEnabled"))
-                                if (typeof message.warmPoolEnabled !== "boolean")
-                                    return "warmPoolEnabled: boolean expected";
+                            if (message.fastStartupEnabled != null && message.hasOwnProperty("fastStartupEnabled"))
+                                if (typeof message.fastStartupEnabled !== "boolean")
+                                    return "fastStartupEnabled: boolean expected";
                             if (message.unassignedDuration != null && message.hasOwnProperty("unassignedDuration")) {
                                 var error = $root.google.protobuf.Duration.verify(message.unassignedDuration);
                                 if (error)
@@ -16156,8 +16156,8 @@
                             }
                             if (object.eventSucceeded != null)
                                 message.eventSucceeded = Boolean(object.eventSucceeded);
-                            if (object.warmPoolEnabled != null)
-                                message.warmPoolEnabled = Boolean(object.warmPoolEnabled);
+                            if (object.fastStartupEnabled != null)
+                                message.fastStartupEnabled = Boolean(object.fastStartupEnabled);
                             if (object.unassignedDuration != null) {
                                 if (typeof object.unassignedDuration !== "object")
                                     throw TypeError(".google.cloud.dataplex.v1.SessionEvent.unassignedDuration: object expected");
@@ -16185,7 +16185,7 @@
                                 object.sessionId = "";
                                 object.type = options.enums === String ? "EVENT_TYPE_UNSPECIFIED" : 0;
                                 object.eventSucceeded = false;
-                                object.warmPoolEnabled = false;
+                                object.fastStartupEnabled = false;
                                 object.unassignedDuration = null;
                             }
                             if (message.message != null && message.hasOwnProperty("message"))
@@ -16203,8 +16203,8 @@
                             }
                             if (message.eventSucceeded != null && message.hasOwnProperty("eventSucceeded"))
                                 object.eventSucceeded = message.eventSucceeded;
-                            if (message.warmPoolEnabled != null && message.hasOwnProperty("warmPoolEnabled"))
-                                object.warmPoolEnabled = message.warmPoolEnabled;
+                            if (message.fastStartupEnabled != null && message.hasOwnProperty("fastStartupEnabled"))
+                                object.fastStartupEnabled = message.fastStartupEnabled;
                             if (message.unassignedDuration != null && message.hasOwnProperty("unassignedDuration"))
                                 object.unassignedDuration = $root.google.protobuf.Duration.toObject(message.unassignedDuration, options);
                             return object;

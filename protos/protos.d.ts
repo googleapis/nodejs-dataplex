@@ -6212,8 +6212,8 @@ export namespace google {
                     /** SessionEvent eventSucceeded */
                     eventSucceeded?: (boolean|null);
 
-                    /** SessionEvent warmPoolEnabled */
-                    warmPoolEnabled?: (boolean|null);
+                    /** SessionEvent fastStartupEnabled */
+                    fastStartupEnabled?: (boolean|null);
 
                     /** SessionEvent unassignedDuration */
                     unassignedDuration?: (google.protobuf.IDuration|null);
@@ -6246,8 +6246,8 @@ export namespace google {
                     /** SessionEvent eventSucceeded. */
                     public eventSucceeded: boolean;
 
-                    /** SessionEvent warmPoolEnabled. */
-                    public warmPoolEnabled: boolean;
+                    /** SessionEvent fastStartupEnabled. */
+                    public fastStartupEnabled: boolean;
 
                     /** SessionEvent unassignedDuration. */
                     public unassignedDuration?: (google.protobuf.IDuration|null);
